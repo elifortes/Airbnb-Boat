@@ -1,0 +1,1398 @@
+<div class="d-flex  justify-content-center">
+<div class="container col-8 m-4  p-2">
+  <!--try the components inside -->
+  <!--
+<div class="d-flex align-content-start flex-wrap">  ...</div>
+<div class="d-flex align-content-center flex-wrap">...</div>
+<div class="d-flex align-content-around flex-wrap">...</div>
+<div class="d-flex align-content-stretch flex-wrap">...</div>
+```html
+<blockquote></blockquote>
+<p><cite></cite></p>
+```
+ -->
+# media objects
+```html
+<div class="d-flex">
+  <div class="flex-shrink-0">
+    <img src="..." alt="...">
+  </div>
+  <div class="flex-grow-1 ms-3">
+    This is some content from a media component. You can replace this with any content and adjust it as needed.
+  </div>
+</div>
+# text jsutify center
+<div class="d-flex align-items-center">
+  <div class="flex-shrink-0">
+    <img src="..." alt="...">
+  </div>
+  <div class="flex-grow-1 ms-3">
+    This is some content from a media component. You can replace this with any content and adjust it as needed.
+  </div>
+</div>
+```
+
+# Navbar
+
+```html
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+```
+
+# navbar option
+
+```html
+# Text brand heading
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <span class="navbar-brand mb-0 h1">Navbar</span>
+  </div>
+</nav>
+# icon brand
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img
+        src="/docs/5.3/assets/brand/bootstrap-logo.svg"
+        alt="Logo"
+        width="30"
+        height="24"
+        class="d-inline-block align-text-top"
+      />
+      Bootstrap
+    </a>
+  </div>
+</nav>
+```
+
+# navbar css
+
+```html
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" />
+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Messages</a>
+          </li>
+          <li class="nav-item dropdown">
+            <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+            </div>
+          </li>
+          <!--li class="nav-item"-->
+          <!--/li-->
+      </ul>
+    </div>
+  </div>
+</div>
+
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+  <!-- Navbar content -->
+</nav>
+
+<nav class="navbar bg-primary" data-bs-theme="dark">
+  <!-- Navbar content -->
+</nav>
+
+<nav class="navbar" style="background-color: #e3f2fd;">
+  <!-- Navbar content -->
+</nav>
+# fit top
+<nav class="navbar fixed-top bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Fixed top</a>
+  </div>
+</nav>
+# sticky top
+<nav class="navbar sticky-top bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Sticky top</a>
+  </div>
+</nav>
+```
+
+# forms
+
+```html
+# form control
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+  <input
+    type="email"
+    class="form-control"
+    id="exampleFormControlInput1"
+    placeholder="name@example.com"
+  />
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label"
+    >Example textarea</label
+  >
+  <textarea
+    class="form-control"
+    id="exampleFormControlTextarea1"
+    rows="3"
+  ></textarea>
+</div>
+# form control sizing
+<input
+  class="form-control form-control-lg"
+  type="text"
+  placeholder=".form-control-lg"
+  aria-label=".form-control-lg example"
+/>
+<input
+  class="form-control"
+  type="text"
+  placeholder="Default input"
+  aria-label="default input example"
+/>
+<input
+  class="form-control form-control-sm"
+  type="text"
+  placeholder=".form-control-sm"
+  aria-label=".form-control-sm example"
+/>
+# from label and text
+<label for="inputPassword5" class="form-label">Password</label>
+<input
+  type="password"
+  id="inputPassword5"
+  class="form-control"
+  aria-describedby="passwordHelpBlock"
+/>
+<div id="passwordHelpBlock" class="form-text">
+  Your password must be 8-20 characters long, contain letters and numbers, and
+  must not contain spaces, special characters, or emoji.
+</div>
+# form align
+<div class="row g-3 align-items-center">
+  <div class="col-auto">
+    <label for="inputPassword6" class="col-form-label">Password</label>
+  </div>
+  <div class="col-auto">
+    <input
+      type="password"
+      id="inputPassword6"
+      class="form-control"
+      aria-describedby="passwordHelpInline"
+    />
+  </div>
+  <div class="col-auto">
+    <span id="passwordHelpInline" class="form-text">
+      Must be 8-20 characters long.
+    </span>
+  </div>
+</div>
+# on top
+<div class="mb-3 row">
+  <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+  <div class="col-sm-10">
+    <input
+      type="text"
+      readonly
+      class="form-control-plaintext"
+      id="staticEmail"
+      value="email@example.com"
+    />
+  </div>
+</div>
+<div class="mb-3 row">
+  <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+  <div class="col-sm-10">
+    <input type="password" class="form-control" id="inputPassword" />
+  </div>
+</div>
+# on row
+<form class="row g-3">
+  <div class="col-auto">
+    <label for="staticEmail2" class="visually-hidden">Email</label>
+    <input
+      type="text"
+      readonly
+      class="form-control-plaintext"
+      id="staticEmail2"
+      value="email@example.com"
+    />
+  </div>
+  <div class="col-auto">
+    <label for="inputPassword2" class="visually-hidden">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="inputPassword2"
+      placeholder="Password"
+    />
+  </div>
+  <div class="col-auto">
+    <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+  </div>
+</form>
+
+# color picker
+<label for="exampleColorInput" class="form-label">Color picker</label>
+<input
+  type="color"
+  class="form-control form-control-color"
+  id="exampleColorInput"
+  value="#563d7c"
+  title="Choose your color"
+/>
+
+# datalist
+<label for="exampleDataList" class="form-label">Datalist example</label>
+<input
+  class="form-control"
+  list="datalistOptions"
+  id="exampleDataList"
+  placeholder="Type to search..."
+/>
+<datalist id="datalistOptions">
+  <option value="San Francisco"></option>
+  <option value="New York"></option>
+  <option value="Seattle"></option>
+  <option value="Los Angeles"></option>
+  <option value="Chicago"></option>
+</datalist>
+```
+
+# select
+
+```html
+<select
+  class="form-select form-select-lg mb-3"
+  aria-label="Large select example"
+>
+  <option selected>Open this select menu</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+</select>
+
+<select class="form-select form-select-sm" aria-label="Small select example">
+  <option selected>Open this select menu</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+</select>
+# sizing
+<select
+  class="form-select form-select-lg mb-3"
+  aria-label="Large select example"
+>
+  <option selected>Open this select menu</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+</select>
+
+<select class="form-select form-select-sm" aria-label="Small select example">
+  <option selected>Open this select menu</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+</select>
+# multiple and size
+<select class="form-select" multiple aria-label="Multiple select example">
+  <option selected>Open this select menu</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+</select>
+<select class="form-select" size="3" aria-label="Size 3 select example">
+  <option selected>Open this select menu</option>
+  <option value="1">One</option>
+  <option value="2">Two</option>
+  <option value="3">Three</option>
+</select>
+```
+
+# check
+
+```html
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    value=""
+    id="flexCheckDefault"
+  />
+  <label class="form-check-label" for="flexCheckDefault">
+    Default checkbox
+  </label>
+</div>
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    value=""
+    id="flexCheckChecked"
+    checked
+  />
+  <label class="form-check-label" for="flexCheckChecked">
+    Checked checkbox
+  </label>
+</div>
+# inline
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    value=""
+    id="flexCheckIndeterminate"
+  />
+  <label class="form-check-label" for="flexCheckIndeterminate">
+    Indeterminate checkbox
+  </label>
+</div>
+# radio
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="radio"
+    name="flexRadioDefault"
+    id="flexRadioDefault1"
+  />
+  <label class="form-check-label" for="flexRadioDefault1">
+    Default radio
+  </label>
+</div>
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="radio"
+    name="flexRadioDefault"
+    id="flexRadioDefault2"
+    checked
+  />
+  <label class="form-check-label" for="flexRadioDefault2">
+    Default checked radio
+  </label>
+</div>
+# switch
+<div class="form-check form-switch">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    role="switch"
+    id="flexSwitchCheckDefault"
+  />
+  <label class="form-check-label" for="flexSwitchCheckDefault"
+    >Default switch checkbox input</label
+  >
+</div>
+<div class="form-check form-switch">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    role="switch"
+    id="flexSwitchCheckChecked"
+    checked
+  />
+  <label class="form-check-label" for="flexSwitchCheckChecked"
+    >Checked switch checkbox input</label
+  >
+</div>
+# form check inline
+<div class="form-check form-check-inline">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    id="inlineCheckbox1"
+    value="option1"
+  />
+  <label class="form-check-label" for="inlineCheckbox1">1</label>
+</div>
+<div class="form-check form-check-inline">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    id="inlineCheckbox2"
+    value="option2"
+  />
+  <label class="form-check-label" for="inlineCheckbox2">2</label>
+</div>
+<div class="form-check form-check-inline">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    id="inlineCheckbox3"
+    value="option3"
+    disabled
+  />
+  <label class="form-check-label" for="inlineCheckbox3">3 (disabled)</label>
+</div>
+# reverse
+<div class="form-check form-check-reverse">
+  <input class="form-check-input" type="checkbox" value="" id="reverseCheck1" />
+  <label class="form-check-label" for="reverseCheck1"> Reverse checkbox </label>
+</div>
+<div class="form-check form-check-reverse">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    value=""
+    id="reverseCheck2"
+    disabled
+  />
+  <label class="form-check-label" for="reverseCheck2">
+    Disabled reverse checkbox
+  </label>
+</div>
+
+<div class="form-check form-switch form-check-reverse">
+  <input class="form-check-input" type="checkbox" id="flexSwitchCheckReverse" />
+  <label class="form-check-label" for="flexSwitchCheckReverse"
+    >Reverse switch checkbox input</label
+  >
+</div>
+# range
+<label for="customRange2" class="form-label">Example range</label>
+<input type="range" class="form-range" min="0" max="5" id="customRange2" />
+```
+
+# input group
+
+```html
+# wrap
+<div class="input-group flex-nowrap">
+  <span class="input-group-text" id="addon-wrapping">@</span>
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Username"
+    aria-label="Username"
+    aria-describedby="addon-wrapping"
+  />
+</div>
+# sizing
+<div class="input-group input-group-sm mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-sm">Small</span>
+  <input
+    type="text"
+    class="form-control"
+    aria-label="Sizing example input"
+    aria-describedby="inputGroup-sizing-sm"
+  />
+</div>
+
+<div class="input-group mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+  <input
+    type="text"
+    class="form-control"
+    aria-label="Sizing example input"
+    aria-describedby="inputGroup-sizing-default"
+  />
+</div>
+
+<div class="input-group input-group-lg">
+  <span class="input-group-text" id="inputGroup-sizing-lg">Large</span>
+  <input
+    type="text"
+    class="form-control"
+    aria-label="Sizing example input"
+    aria-describedby="inputGroup-sizing-lg"
+  />
+</div>
+
+# check and radio
+<div class="input-group mb-3">
+  <div class="input-group-text">
+    <input
+      class="form-check-input mt-0"
+      type="checkbox"
+      value=""
+      aria-label="Checkbox for following text input"
+    />
+  </div>
+  <input
+    type="text"
+    class="form-control"
+    aria-label="Text input with checkbox"
+  />
+</div>
+
+<div class="input-group">
+  <div class="input-group-text">
+    <input
+      class="form-check-input mt-0"
+      type="radio"
+      value=""
+      aria-label="Radio button for following text input"
+    />
+  </div>
+  <input
+    type="text"
+    class="form-control"
+    aria-label="Text input with radio button"
+  />
+</div>
+# multiple input
+<div class="input-group">
+  <span class="input-group-text">First and last name</span>
+  <input type="text" aria-label="First name" class="form-control" />
+  <input type="text" aria-label="Last name" class="form-control" />
+</div>
+# multiple addon
+<div class="input-group mb-3">
+  <span class="input-group-text">$</span>
+  <span class="input-group-text">0.00</span>
+  <input
+    type="text"
+    class="form-control"
+    aria-label="Dollar amount (with dot and two decimal places)"
+  />
+</div>
+# multiple button
+<div class="input-group mb-3">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Recipient's username"
+    aria-label="Recipient's username"
+    aria-describedby="button-addon2"
+  />
+  <button class="btn btn-outline-secondary" type="button" id="button-addon2">
+    Button
+  </button>
+</div>
+
+<div class="input-group mb-3">
+  <button class="btn btn-outline-secondary" type="button">Button</button>
+  <button class="btn btn-outline-secondary" type="button">Button</button>
+  <input
+    type="text"
+    class="form-control"
+    placeholder=""
+    aria-label="Example text with two button addons"
+  />
+</div>
+# custom select
+
+<div class="input-group mb-3">
+  <select class="form-select" id="inputGroupSelect02">
+    <option selected>Choose...</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+  <label class="input-group-text" for="inputGroupSelect02">Options</label>
+</div>
+
+<div class="input-group mb-3">
+  <button class="btn btn-outline-secondary" type="button">Button</button>
+  <select
+    class="form-select"
+    id="inputGroupSelect03"
+    aria-label="Example select with button addon"
+  >
+    <option selected>Choose...</option>
+    <option value="1">One</option>
+    <option value="2">Two</option>
+    <option value="3">Three</option>
+  </select>
+</div>
+```
+
+# floating labels
+
+```html
+<div class="form-floating mb-3">
+  <input
+    type="email"
+    class="form-control"
+    id="floatingInput"
+    placeholder="name@example.com"
+  />
+  <label for="floatingInput">Email address</label>
+</div>
+<div class="form-floating">
+  <input
+    type="password"
+    class="form-control"
+    id="floatingPassword"
+    placeholder="Password"
+  />
+  <label for="floatingPassword">Password</label>
+</div>
+# with value
+<form class="form-floating">
+  <input
+    type="email"
+    class="form-control"
+    id="floatingInputValue"
+    placeholder="name@example.com"
+    value="test@example.com"
+  />
+  <label for="floatingInputValue">Input with value</label>
+</form>
+# with validation
+<form class="form-floating">
+  <input
+    type="email"
+    class="form-control is-invalid"
+    id="floatingInputInvalid"
+    placeholder="name@example.com"
+    value="test@example.com"
+  />
+  <label for="floatingInputInvalid">Invalid input</label>
+</form>
+# text area comment
+<div class="form-floating">
+  <textarea
+    class="form-control"
+    placeholder="Leave a comment here"
+    id="floatingTextarea"
+  ></textarea>
+  <label for="floatingTextarea">Comments</label>
+</div>
+<div class="form-floating">
+  <textarea
+    class="form-control"
+    placeholder="Leave a comment here"
+    id="floatingTextarea2"
+    style="height: 100px"
+  ></textarea>
+  <label for="floatingTextarea2">Comments</label>
+</div>
+# input group
+<div class="input-group mb-3">
+  <span class="input-group-text">@</span>
+  <div class="form-floating">
+    <input
+      type="text"
+      class="form-control"
+      id="floatingInputGroup1"
+      placeholder="Username"
+    />
+    <label for="floatingInputGroup1">Username</label>
+  </div>
+</div>
+# input group and validation
+<div class="input-group has-validation">
+  <span class="input-group-text">@</span>
+  <div class="form-floating is-invalid">
+    <input
+      type="text"
+      class="form-control is-invalid"
+      id="floatingInputGroup2"
+      placeholder="Username"
+      required
+    />
+    <label for="floatingInputGroup2">Username</label>
+  </div>
+  <div class="invalid-feedback">Please choose a username.</div>
+</div>
+
+# in row of 2
+<div class="row g-2">
+  <div class="col-md">
+    <div class="form-floating">
+      <input
+        type="email"
+        class="form-control"
+        id="floatingInputGrid"
+        placeholder="name@example.com"
+        value="mdo@example.com"
+      />
+      <label for="floatingInputGrid">Email address</label>
+    </div>
+  </div>
+  <div class="col-md">
+    <div class="form-floating">
+      <select class="form-select" id="floatingSelectGrid">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+      <label for="floatingSelectGrid">Works with selects</label>
+    </div>
+  </div>
+</div>
+```
+
+# forms layout
+
+```html
+# with label
+<div class="mb-3">
+  <label for="formGroupExampleInput" class="form-label">Example label</label>
+  <input
+    type="text"
+    class="form-control"
+    id="formGroupExampleInput"
+    placeholder="Example input placeholder"
+  />
+</div>
+<div class="mb-3">
+  <label for="formGroupExampleInput2" class="form-label">Another label</label>
+  <input
+    type="text"
+    class="form-control"
+    id="formGroupExampleInput2"
+    placeholder="Another input placeholder"
+  />
+</div>
+# whit from grid
+<div class="row">
+  <div class="col">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="First name"
+      aria-label="First name"
+    />
+  </div>
+  <div class="col">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Last name"
+      aria-label="Last name"
+    />
+  </div>
+</div>
+# horizontal
+<div class="row">
+  <div class="col">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="First name"
+      aria-label="First name"
+    />
+  </div>
+  <div class="col">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Last name"
+      aria-label="Last name"
+    />
+  </div>
+</div>
+# colum sizing
+<div class="row g-3">
+  <div class="col-sm-7">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="City"
+      aria-label="City"
+    />
+  </div>
+  <div class="col-sm">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="State"
+      aria-label="State"
+    />
+  </div>
+  <div class="col-sm">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Zip"
+      aria-label="Zip"
+    />
+  </div>
+</div>
+#
+```
+
+# LISTS
+
+```html
+<ul class="list-group">
+  <li class="list-group-item">An item</li>
+  <li class="list-group-item">A second item</li>
+  <li class="list-group-item">A third item</li>
+  <li class="list-group-item disabled" aria-disabled="true">A disabled item</li>
+  <li class="list-group-item active" aria-current="true">An active item</li>
+  <a
+    href="#"
+    class="list-group-item list-group-item-action active"
+    aria-current="true"
+  >
+    The current link item
+  </a>
+  <button
+    type="button"
+    class="list-group-item list-group-item-action active"
+    aria-current="true"
+  >
+    The current button
+  </button>
+</ul>
+
+# flush
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">An item</li>
+  <li class="list-group-item">A second item</li>
+  <li class="list-group-item">A third item</li>
+  <li class="list-group-item">A fourth item</li>
+  <li class="list-group-item">And a fifth one</li>
+</ul>
+
+# numbered
+<ol class="list-group list-group-numbered">
+  <li class="list-group-item">A list item</li>
+  <li class="list-group-item">A list item</li>
+  <li class="list-group-item">A list item</li>
+</ol>
+
+# with contents
+<ol class="list-group list-group-numbered">
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">Subheading</div>
+      Content for list item
+    </div>
+    <span class="badge bg-primary rounded-pill">14</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">Subheading</div>
+      Content for list item
+    </div>
+    <span class="badge bg-primary rounded-pill">14</span>
+  </li>
+</ol>
+
+# with badge
+<ul class="list-group">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    A list item
+    <span class="badge bg-primary rounded-pill">14</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    A second list item
+    <span class="badge bg-primary rounded-pill">2</span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    A third list item
+    <span class="badge bg-primary rounded-pill">1</span>
+  </li>
+</ul>
+# with custom contents
+<div class="list-group">
+  <a
+    href="#"
+    class="list-group-item list-group-item-action active"
+    aria-current="true"
+  >
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">List group item heading</h5>
+      <small>3 days ago</small>
+    </div>
+    <p class="mb-1">Some placeholder content in a paragraph.</p>
+    <small>And some small print.</small>
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">List group item heading</h5>
+      <small class="text-body-secondary">3 days ago</small>
+    </div>
+    <p class="mb-1">Some placeholder content in a paragraph.</p>
+    <small class="text-body-secondary">And some muted small print.</small>
+  </a>
+</div>
+# list with checkbox
+<ul class="list-group">
+  <li class="list-group-item">
+    <input
+      class="form-check-input me-1"
+      type="checkbox"
+      value=""
+      id="firstCheckbox"
+    />
+    <label class="form-check-label" for="firstCheckbox">First checkbox</label>
+  </li>
+  <li class="list-group-item">
+    <input
+      class="form-check-input me-1"
+      type="checkbox"
+      value=""
+      id="secondCheckbox"
+    />
+    <label class="form-check-label" for="secondCheckbox">Second checkbox</label>
+  </li>
+  <li class="list-group-item">
+    <input
+      class="form-check-input me-1"
+      type="checkbox"
+      value=""
+      id="thirdCheckbox"
+    />
+    <label class="form-check-label" for="thirdCheckbox">Third checkbox</label>
+  </li>
+</ul>
+# list radio
+<ul class="list-group">
+  <li class="list-group-item">
+    <input
+      class="form-check-input me-1"
+      type="radio"
+      name="listGroupRadio"
+      value=""
+      id="firstRadio"
+      checked
+    />
+    <label class="form-check-label" for="firstRadio">First radio</label>
+  </li>
+  <li class="list-group-item">
+    <input
+      class="form-check-input me-1"
+      type="radio"
+      name="listGroupRadio"
+      value=""
+      id="secondRadio"
+    />
+    <label class="form-check-label" for="secondRadio">Second radio</label>
+  </li>
+  <li class="list-group-item">
+    <input
+      class="form-check-input me-1"
+      type="radio"
+      name="listGroupRadio"
+      value=""
+      id="thirdRadio"
+    />
+    <label class="form-check-label" for="thirdRadio">Third radio</label>
+  </li>
+</ul>
+# .strectched-link on label for a click group
+<ul class="list-group">
+  <li class="list-group-item">
+    <input
+      class="form-check-input me-1"
+      type="checkbox"
+      value=""
+      id="firstCheckboxStretched"
+    />
+    <label class="form-check-label stretched-link" for="firstCheckboxStretched"
+      >First checkbox</label
+    >
+  </li>
+  <li class="list-group-item">
+    <input
+      class="form-check-input me-1"
+      type="checkbox"
+      value=""
+      id="secondCheckboxStretched"
+    />
+    <label class="form-check-label stretched-link" for="secondCheckboxStretched"
+      >Second checkbox</label
+    >
+  </li>
+  <li class="list-group-item">
+    <input
+      class="form-check-input me-1"
+      type="checkbox"
+      value=""
+      id="thirdCheckboxStretched"
+    />
+    <label class="form-check-label stretched-link" for="thirdCheckboxStretched"
+      >Third checkbox</label
+    >
+  </li>
+</ul>
+```
+
+## cards
+
+````html
+# default
+<div class="card" style="width: 18rem;">
+  <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+# body content
+<div class="card">
+  <div class="card-body">
+    This is some text within a card body.
+  </div>
+</div>
+# card as list group
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+  <div class="card-footer">
+    Card footer
+  </div>
+</div>
+# with list inside ```html
+<div class="card" style="width: 18rem;">
+  <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+# header/footer
+<div class="card">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+# quote````
+<div class="card">
+  <div class="card-header">
+    Quote
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>A well-known quote, contained in a blockquote element.</p>
+      <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+    </blockquote>
+  </div>
+</div>
+#feature
+<div class="card text-center">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-body-secondary">
+    2 days ago
+  </div>
+</div>
+# cards in grid system
+
+```html
+# two by row
+<div class="bd-example m-0 border-0">
+<div class="card mb-3">
+  <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+  </div>
+  <svg class="bd-placeholder-img card-img-bottom" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+</div>
+</div>
+# using css
+<div class="card w-75 mb-3">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">
+      With supporting text below as a natural lead-in to additional content.
+    </p>
+    <a href="#" class="btn btn-primary">Button</a>
+  </div>
+</div>
+
+<div class="card w-50">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">
+      With supporting text below as a natural lead-in to additional content.
+    </p>
+    <a href="#" class="btn btn-primary">Button</a>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">
+      With supporting text below as a natural lead-in to additional content.
+    </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+# image top
+<div class="card" style="width: 18rem;">
+  <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+  <div class="card-body">
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+# image bottom
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">
+      This is a wider card with supporting text below as a natural lead-in to
+      additional content. This content is a little bit longer.
+    </p>
+    <p class="card-text">
+      <small class="text-body-secondary">Last updated 3 mins ago</small>
+    </p>
+  </div>
+  <img src="..." class="card-img-bottom" alt="..." />
+</div>
+# image overlay
+<div class="card text-bg-dark">
+  <svg class="bd-placeholder-img bd-placeholder-img-lg card-img" width="100%" height="270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Card image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Card image</text></svg>
+  <div class="card-img-overlay">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+    <p class="card-text"><small>Last updated 3 mins ago</small></p>
+  </div>
+</div>
+# row with image
+<div class="card mb-3" style="max-width: 540px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <svg class="bd-placeholder-img img-fluid rounded-start" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+# cards in group using d-flex
+
+```html
+# in row
+<div class="card-group">
+  <div class="card">
+    <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+  <div class="card">
+    <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div>
+
+# 2 by 2
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  <div class="col">
+    <div class="card">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+</div>
+# When you need equal height, add .h-100
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+</div>
+```
+<div class="bd-example m-0 border-0">
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a short card.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <svg class="bd-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+# cards grid in masony
+
+```html
+# not included add script.
+<script
+  src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+  integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D"
+  crossorigin="anonymous"
+  async
+></script>
+```
+
+```css
+.row { data-masonry='{"percentPosition": true }' }
+```
+
+```html
+<div
+  class="row"
+  data-masonry='{"percentPosition": true }'
+  style="position: relative; height: 714px;"
+></div>
+```
+
+By adding data-masonry='{"percentPosition": true }' to the .row wrapper, we can combine the powers of Bootstrap's responsive grid and Masonry's positioning.

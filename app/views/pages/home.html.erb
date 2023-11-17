@@ -1,2 +1,39 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%= render "shared/navbar" %>
+<div class="row justify-content-center align-content-between mt-4">
+  <div class=" bg-light col-12 col-lg-4 mt-4" style="width: 36rem;">
+    <!-- container -->
+    <h1> <%= @greeting  %></h1>
+    <h2>let's test some settings!</h2>
+    <div class="card" >
+      <img class="card-img-top p-2" src="<%= asset_path 'logo.png' %>" alt="Card image cap" />
+      <div class="card-body">
+        <h4 class="card-title">Icons</h4>
+        <p class="card-text">
+          Some quick example text to build on the card title and make up the bulk
+          of the card's content.
+        </p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <ion-icon name="logo-ionic"></ion-icon> Ionicons
+        </li>
+        <li class="list-group-item">
+          <i class="bi bi-bootstrap-fill"></i> Boostrap
+        </li>
+        <li class="list-group-item">
+          <i class="fa-brands fa-font-awesome"></i> Font Awesome
+        </li>
+        <li class="list-group-item"><span class="material-icons">&#xE87C;</span> Material Icons</li>
+      </ul>
+      <div class="card-body">
+        <%= link_to "test page", test_path %>
+      </div>
+      <div class="card-footer">
+        <small class="text-body-secondary">
+          <%= link_to "go to project", root_path %>
+        </small>
+      </div>
+    </div>
+    <!-- end container -->
+  </div>
+</div>
