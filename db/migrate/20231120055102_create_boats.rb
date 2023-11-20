@@ -14,6 +14,7 @@ class CreateBoats < ActiveRecord::Migration[7.1]
       t.string :boat_model
       t.string :boat_size
       t.integer :year_made
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

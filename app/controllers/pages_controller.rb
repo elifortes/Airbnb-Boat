@@ -5,4 +5,7 @@ class PagesController < ApplicationController
 
   def tests
   end
+
+  def nktest
+  end
 end

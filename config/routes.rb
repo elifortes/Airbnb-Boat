@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   get 'pages/home', to: 'pages#home', as: :home
   get 'pages/test', to: "pages#test", as: :test
+  get 'pages/nktest', to: "pages#test", as: :nktest
   get 'pages/components', to: "pages#components", as: :components
 
 end
