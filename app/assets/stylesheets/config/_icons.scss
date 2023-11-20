@@ -15,3 +15,87 @@
   color: cornflowerblue;
   color: darkslateblue;
 }
+
+// font awesome insert in class: 
+fa-inline-b {
+  @extend %fa-icon;
+  @extend .fa-brands;
+  padding-right: .7rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+fa-inline-s {
+  @extend %fa-icon;
+  @extend .fa-solid;
+  padding-right: .7rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+fa-inline-r {
+  @extend %fa-icon;
+  @extend .fa-regular;
+  padding-right: .7rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+// Twitter brand icon
+.twitter {
+  &:before {
+    @extend fa-inline-b;
+    content: fa-content($fa-var-twitter);
+  }
+}
+
+.user {
+  &:before {
+    @extend fa-inline-s;
+    content: fa-content($fa-var-user);
+  }
+}
+
+.alert {
+  &:before {
+    @extend fa-inline-s;
+    content: fa-content($fa-var-triangle-exclamation);
+  }
+}
+
+// Sharp Solid style of trash
+.trash {
+  &:before {
+    @extend fa-inline-s;
+    content: fa-content($fa-var-triangle-exclamation);
+  }
+}
+
+// Classic Solid style of trash
+.logout {
+  &:before {
+    @extend fa-inline-s;
+    content: fa-content($fa-var-triangle-exclamation);
+  }
+}
+
+.user-r {
+  &:before {
+    @extend fa-inline-r;
+    content: fa-content($fa-var-user);
+  }
+}
+
+.action {
+  &:before {
+    @extend fa-inline-s;
+    content: fa-content($fa-var-list);
+  }
+}
+
+.bars {
+  &:before {
+    @extend fa-inline-s;
+    content: fa-content($fa-var-bars-progress);
+  }
+}
