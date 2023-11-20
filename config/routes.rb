@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   get 'pages/test', to: "pages#test", as: :test
   get 'pages/nktest', to: "pages#test", as: :nktest
   get 'pages/components', to: "pages#components", as: :components
-
+  resources :bookings
+  resources :boats
 end
