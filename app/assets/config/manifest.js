@@ -3,4 +3,7 @@
 //= link_tree ../../javascript .js
 //= link_tree ../../../vendor/javascript .js
 //= link popper.js
-//= link bootstrap.min.js
+//= link bootstrap.js
+//= require jquery3
+//= require popper
+//= require bootstrap
