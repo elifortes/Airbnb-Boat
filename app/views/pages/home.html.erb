@@ -25,7 +25,7 @@
         <li class="list-group-item"><span class="material-icons">&#xE87C;</span> Material Icons</li>
         <li class="list-group-item">signed?:
           <%= user_signed_in?  %>|has_photo?
-          <%= @user.photo.attached? %><br
+          <%= user_signed_in? && @user.photo.attached?  %><br
           <% if user_signed_in? && @user.photo.attached? %>
             <!-- [...] -->
             <%= cl_image_tag current_user.photo.key , width: 50 %>
