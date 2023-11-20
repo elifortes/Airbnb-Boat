@@ -18,7 +18,8 @@
     <%= hotwire_livereload_tags if Rails.env.development? %>
   </head>
   <body>
-    <%= yield %>
+    <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
+    <%= yield %>
   </body>
 </html>

@@ -1,8 +1,7 @@
-<%= render "shared/navbar" %>
-<div class="row justify-content-center align-content-between mt-4">
+<div class="row justify-content-center align-content-between m-4">
   <div class=" bg-light col-12 col-lg-4 mt-4" style="width: 36rem;">
     <!-- container -->
-    <h1> Hi there</h1>
+    <h1> Hello there</h1>
     <h2>let's test some settings!</h2>
     <div class="card" >
       <img class="card-img-top p-2" src="<%= asset_path 'logo.png' %>" alt="Card image cap" />
@@ -25,16 +24,18 @@
         </li>
         <li class="list-group-item"><span class="material-icons">&#xE87C;</span> Material Icons</li>
         <li class="list-group-item">
-          <i class="fa-brands fa-photo"></i>
-          <% if user_signed_in? %>
+          <% if user_signed_in? && @user.photo.attached? %>
             <!-- [...] -->
-            <%= @user.photo %>
+            <%= cl_image_tag current_user.photo.key , width: 50 %>
             <!-- [...] -->
+            <%= @user.email %>
           <% end %>
         </li>
       </ul>
       <div class="card-body">
-        <%= link_to "test page", test_path %>
+        <%= link_to "test page", test_path, class: 'mx-2 twitter' %>
+        <%= link_to "components page", components_path, class: 'mx-2 logout' %>
+        <%= link_to "edit user", edit_user_registration_path,class: 'mx-2 user-r' %>
       </div>
       <div class="card-footer">
         <small class="text-body-secondary">
@@ -45,6 +46,3 @@
     <!-- end container -->
   </div>
 </div>
-<% if user_signed_in? %>
-  <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
