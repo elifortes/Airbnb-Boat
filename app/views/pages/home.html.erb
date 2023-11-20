@@ -24,6 +24,14 @@
           <i class="fa-brands fa-font-awesome"></i> Font Awesome
         </li>
         <li class="list-group-item"><span class="material-icons">&#xE87C;</span> Material Icons</li>
+        <li class="list-group-item">
+          <i class="fa-brands fa-photo"></i>
+          <% if user_signed_in? %>
+            <!-- [...] -->
+            <%= @user.photo %>
+            <!-- [...] -->
+          <% end %>
+        </li>
       </ul>
       <div class="card-body">
         <%= link_to "test page", test_path %>
@@ -37,3 +45,6 @@
     <!-- end container -->
   </div>
 </div>
+<% if user_signed_in? %>
+  <%= cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill %>
+<% end %>
