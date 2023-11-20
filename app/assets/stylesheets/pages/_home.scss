@@ -29,3 +29,18 @@ img.card-airbnb {
   overflow: hidden;
   border: 0px
 }
+
+
+.warning {
+  background-color: rgba(248, 221, 229, 0.503);
+  color: black;
+  font-weight: bolder;
+  font-size: 1.1em;
+  display: inline-block;
+  vertical-align: end;
+}
+
+
+.alert-info {
+  background-color: greenyellow;
+}
