@@ -4,11 +4,11 @@ class BoatsController < ApplicationController
   end
 
   def show
-
+    @boat = Boat.find(params[:id])
+    @booking = Booking.new(boat: @boat)
   end
 
   def new
-
     @boat = Boat.new
   end
 
