@@ -12,33 +12,48 @@
 # Create 5 fake boat records
 #Boat.create(title: "Example Boat",description: "A fantastic boat for all occasions.",price_per_unit: 150.0,reviews: 4,captain_name: "Captain John Doe",guest_capacity: 10,availability_from: Date.today + 15,availability_to: Date.today + 30,boat_maker_name: "Ocean Cruisers",boat_model: "CruiseMaster 2000",boat_size: "40 ft",year_made: 2018)
 require "open-uri"
+require 'faker'
 
-User.destroy_all
+# User.destroy_all
 # new users
+def users
 user1 = User.new(
-  :email                 => "aa@me.com",
+  :email                 => "ba@me.com",
   :password              => "123456",
   :password_confirmation => "123456"
 ).save!
 
 user2 = User.new(
-  :email                 => "bb@me.com",
+  :email                 => "cb@me.com",
   :password              => "123456",
   :password_confirmation => "123456"
 ).save!
 
 user3 = User.new(
-:email                 => "cc@me.com",
+:email                 => "dc@me.com",
 :password              => "123456",
 :password_confirmation => "123456"
 ).save!
+end
 
 
-boat = Boat.create(title: "Example Boat",description: "A fantastic boat for all occasions.",price_per_unit: 150.0,reviews: 4,captain_name: "Captain John Doe",guest_capacity: 10,availability_from: Date.today + 15,availability_to: Date.today + 30,boat_maker_name: "Ocean Cruisers",boat_model: "CruiseMaster 2000",boat_size: "40 ft",year_made: 2018)
-boat.user = user1
+
+10.times do
+
+name = Faker::FunnyName.name
+boat = Boat.create(title:name  ,description: "A fantastic boat for all occasions.",price_per_unit: 150.0,reviews: 4,captain_name: "Captain John Doe",guest_capacity: 10,availability_from: Date.today + 15,availability_to: Date.today + 30,boat_maker_name: "Ocean Cruisers",boat_model: "CruiseMaster 2000",boat_size: "40 ft",year_made: 2018)
+boat.user = User.all.sample
+p boat.title
 p boat.save!
 
+end
 
-boat = Boat.create(title: "Example bit",description: "A fantastic boat for all occasions.",price_per_unit: 150.0,reviews: 4,captain_name: "Captain John Doe",guest_capacity: 10,availability_from: Date.today + 15,availability_to: Date.today + 30,boat_maker_name: "Ocean Cruisers",boat_model: "CruiseMaster 2000",boat_size: "40 ft",year_made: 2018)
-boat.user = user2
-p boat.save!
+10.times do
+
+booking = Booking.new(start_date:Date.today + rand(1..7) ,end_date:Date.today + rand(7..17))
+booking.user=  User.all.sample
+booking.boat= Boat.all.sample
+booking.status = false
+p  booking.save!
+
+end
