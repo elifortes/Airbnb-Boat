@@ -6,8 +6,8 @@
   <%# <%= f.input :reviews %>
   <%= f.input :captain_name %>
   <%= f.input :guest_capacity %>
-  <%= f.input :availability_from %>
-  <%= f.input :availability_to %>
+  <%= f.input :availability_from, as: :string, input_html: { data: { controller: "datepicker" } } %>
+  <%= f.input :availability_to, as: :string,  input_html: { data: { controller: "datepicker" } } %>
   <%= f.input :boat_maker_name %>
   <%= f.input :boat_model %>
   <%= f.input :boat_size %>
