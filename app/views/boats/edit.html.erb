@@ -1,2 +1,10 @@
-<h1>Boats#edit</h1>
-<p>Find me in app/views/boats/edit.html.erb</p>
+
+
+<div class="container my-3">
+  <h1>Edit Boat</h1>
+
+<%= render "form", boat: @boat %>
+
+
+  <%= link_to 'Back to Boats', boats_path %>
+</div>
