@@ -1,1 +1,46 @@
 // Specific CSS for your home-page
+a {
+  text-decoration: none;
+  color: darkblue;
+  font-weight: bolder;
+
+  &:hover {
+    color: darkblue;
+    text-shadow: 1px 1px 1px darkblue;
+  }
+}
+
+.btn-outline-danger {
+  &:hover {
+    color: white;
+    font-weight: bolder;
+  }
+}
+
+
+img.card-airbnb {
+  border-radius: 2em;
+  overflow: hidden;
+  border: 0px
+}
+
+.card-airbnb {
+  border-radius: 2em;
+  overflow: hidden;
+  border: 0px
+}
+
+
+.warning {
+  background-color: rgba(248, 221, 229, 0.503);
+  color: black;
+  font-weight: bolder;
+  font-size: 1.1em;
+  display: inline-block;
+  vertical-align: end;
+}
+
+
+.alert-info {
+  background-color: greenyellow;
+}

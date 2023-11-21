@@ -1,22 +1,44 @@
-<%= render "shared/navbar" %>
+
 <div class="row justify-content-center align-content-between mt-4">
   <div class=" bg-light col-12 col-lg-4 mt-4">
     <!--try the components inside -->
-    <div class="card mb-3" style="max-width: 100%;">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <!--<img src="" class="img-fluid rounded-start" alt="">  -->
-          <svg class="bd-placeholder-img img-fluid rounded-start" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+    <div class="card card-airbnb h-100">
+      <div class="card-airbnb">
+        <div id="carouselExampleIndicators" class="carousel slide card-airbnb">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" class="active" aria-current="true"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" class=""></button>
           </div>
+          <div class="carousel-inner h-50 ">
+            <div class="carousel-item">
+              <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="card-img-top card-airbnb" alt="Los Angeles Skyscrapers">
+            </div>
+            <div class="carousel-item active">
+              <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/046.webp" class="card-img-top card-airbnb" alt="Los Angeles Skyscrapers">
+            </div>
+            <div class="carousel-item">
+              <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/041.webp" class="card-img-top card-airbnb" alt="Los Angeles Skyscrapers">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">
+          Change it to .row-cols-3 and you’ll see the fourth card wrap.
+        </p>
       </div>
     </div>
     <!--end of try the components inside -->
   </div>
 </div>
+
