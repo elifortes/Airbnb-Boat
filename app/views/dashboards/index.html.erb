@@ -1,5 +1,5 @@
 <div class="row justify-content-center align-content-between m-4">
-  <div class=" bg-light col-12 col-lg-4 mt-4" style="width: 36rem;">
+  <div class=" bg-light col-12 col-lg-4 mt-4" style="width: 50rem;">
     user id    <%= @user.id %>
     <br>
     <!-- container -->
@@ -7,16 +7,34 @@
     <ul>
       <% @boats.each do |ob| %>
         <li>
-          <%= ob.title %>   <%= ob.user_id %> <%= ob.user_id %>
+          <%= ob.id %>  <%= ob.title %>   <%= ob.user_id %>
         </li>
       <% end %>
     </ul>
     My booking
     <ul>
       <% @bookings.each do |bb|%>
-        <li><%= bb.start_date %>||<%= bb.end_date %>||<%= bb.status %> <%= bb.user_id %></li>
+        <li><%= bb.start_date %>||<%= bb.end_date %>|| <%= bb.user_id %>
+          ||booking status:<%= bb.status %></li>
       <% end %>
     </ul>
-    Bookings waiting for validation
-    <%=  @pending.each do |pp| %>
-    <% end %>
+    <div class="col" data-controller="update-booking">
+      Bookings waiting for validation
+      <ul>
+        <div id="bookings" data-update-booking-target="bookings">
+          <%  @pending.each do |pp| %>
+            <li>
+              <%= pp.boat_id %>||<%= pp.start_date %>||<%= pp.end_date %>|| <%= pp.user_id %>|
+              <%= pp.status %>
+              <%= simple_form_for pp, data: { update_booking_target: "status", action: "submit->update-booking#update" } do |f| %>
+                <!-- ... --> <%= f.input :status,label: false %>
+                <%= f.button :submit, class:'btn btn-outline-success' %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+My pending bookings

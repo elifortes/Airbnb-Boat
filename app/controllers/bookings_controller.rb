@@ -34,15 +34,14 @@ class BookingsController < ApplicationController
   #   @booking = Booking.find(params[:id])
   # end
 
-  # def update
-  #   @booking = Booking.find(params[:id])
-  #   if @booking.update(booking_params)
-  #     redirect_to @booking, notice: 'Booking was successfully updated.'
-  #   else
-  #     @boats = Boat.all
-  #     render :edit
-  #   end
-  # end
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to dashboards_path, notice: 'Booking was successfully updated.'
+    else
+      render :edit
+    end
+  end
 
   # def destroy
   #   @booking.destroy
@@ -66,6 +65,5 @@ class BookingsController < ApplicationController
   # def authorize_user!
   #   redirect_to root_path, unless @booking.user == current_user
   # end
-
 
 end
