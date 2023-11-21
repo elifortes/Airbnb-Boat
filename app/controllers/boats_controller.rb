@@ -6,6 +6,8 @@ class BoatsController < ApplicationController
   def show
     @boat = Boat.find(params[:id])
     @booking = Booking.new(boat: @boat)
+
+
   end
 
   def new
