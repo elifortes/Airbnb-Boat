@@ -13,7 +13,13 @@
     <% @boats.each do |boat| %>
       <div class="co-12 col-sm-6 col-md-4 mb-3">
         <%= link_to boat_path(boat), class:"text-decoration-none" do %>
-            <%= boat.name %>
+            <%= boat.title %>
+<%#
+            <% boat.photos.each do |photo| %>
+            <%# <% if (boat.photo.attached?)  %>
+            <%# <%= cl_image_tag(boat.photo.key, height: 200, width: 650)  %> 
+
+            <%# <% end %>
           </div>
         <% end %>
       </div>

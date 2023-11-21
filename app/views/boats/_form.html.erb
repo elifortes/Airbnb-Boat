@@ -1,0 +1,17 @@
+
+<%= simple_form_for boat do |f| %>
+  <%= f.input :title, placeholder: 'Enter title' %>
+  <%= f.input :description %>
+  <%= f.input :price_per_unit %>
+  <%# <%= f.input :reviews %>
+  <%= f.input :captain_name %>
+  <%= f.input :guest_capacity %>
+  <%= f.input :availability_from %>
+  <%= f.input :availability_to %>
+  <%= f.input :boat_maker_name %>
+  <%= f.input :boat_model %>
+  <%= f.input :boat_size %>
+  <%= f.input :year_made %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.button :submit, class: "btn btn-primary"%>
+<% end %>

@@ -1,7 +1,7 @@
 class Boat < ApplicationRecord
   belongs_to :user
-  validates :price_per_unit, :reviews, :guest_capacity, :year_made, numericality: { greater_than: 0 }
-  validates :title, :description, :price_per_unit, presence: true
+  # validates :price_per_unit, :reviews, :year_made, numericality: { greater_than: 0 }
+  # validates :title, :description, :price_per_unit, presence: true
 
   has_many_attached :photos
 end
