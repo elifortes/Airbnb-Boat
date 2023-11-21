@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home test nktest components]
+  # skip_before_action :authenticate_user!, only: %i[home test nktest components]
   def home
     @user = current_user
   end
