@@ -24,12 +24,22 @@ class BoatsController < ApplicationController
   end
 
   def edit
+    @boat = Boat.find(params[:id])
   end
 
   def update
+    @boat = Boat.find(params[:id])
+    @boat.update(boat_params)
+    redirect_to boat_path(@boat)
   end
 
   def destroy
+    @boat = Boat.find(params[:id])
+    if  @boat.destroy
+    redirect_to boats_path, notice: 'Boat ad was successfully deleted.'
+    else
+      render :index, status: :unprocessable_entity
+    end
   end
 
   private
