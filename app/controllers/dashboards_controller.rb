@@ -9,5 +9,8 @@ class DashboardsController < ApplicationController
     @boats.each do |bb|
       @pending += bb.bookings.reject { |b| b.user_id == current_user.id }
     end
+    @open = @pending.select { |o| o.status == 'pending' }
+
+    @percentage = (Float(@open.length - @bookings.length) / @open.length * 100).ceil
   end
 end
