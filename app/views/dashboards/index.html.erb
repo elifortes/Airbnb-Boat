@@ -1,0 +1,22 @@
+<div class="row justify-content-center align-content-between m-4">
+  <div class=" bg-light col-12 col-lg-4 mt-4" style="width: 36rem;">
+    user id    <%= @user.id %>
+    <br>
+    <!-- container -->
+    My boats
+    <ul>
+      <% @boats.each do |ob| %>
+        <li>
+          <%= ob.title %>   <%= ob.user_id %> <%= ob.user_id %>
+        </li>
+      <% end %>
+    </ul>
+    My booking
+    <ul>
+      <% @bookings.each do |bb|%>
+        <li><%= bb.start_date %>||<%= bb.end_date %>||<%= bb.status %> <%= bb.user_id %></li>
+      <% end %>
+    </ul>
+    Bookings waiting for validation
+    <%=  @pending.each do |pp| %>
+    <% end %>
