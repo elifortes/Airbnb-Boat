@@ -1,0 +1,22 @@
+
+
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.lucentcms.com/iyc_website/2022/12/63a2ec6b2f268-montenegro-banner.jpg?w=1920&format=webp)">
+<h3 class="text-sucess"> Sail into Freedom: Rent Your Boat Now! </h3>
+</div>
+
+<div class="container pt-3">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h3 class="mb-0">Boats</h3>
+    <%= link_to "Post a Boat", new_boat_path, class: "btn btn-success" %>
+  </div>
+  <div class="row">
+    <% @boats.each do |boat| %>
+      <div class="co-12 col-sm-6 col-md-4 mb-3">
+        <%= link_to boat_path(boat), class:"text-decoration-none" do %>
+            <%= boat.name %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
