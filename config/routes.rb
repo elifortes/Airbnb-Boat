@@ -9,20 +9,20 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  # root "posts#index"
+  root "boats#index"
   devise_for :users
+
   root to: "boats#index"
   #get 'pages/home', to: 'pages#home', as: :home
   #get 'pages/test', to: "pages#test", as: :test
   #get 'pages/nktest', to: "pages#test", as: :nktest
   #get 'pages/components', to: "pages#components", as: :components
 
-
   # config/routes.rb
   resources :boats  do
     resources :bookings
   end
   resources :bookings
-    resources :dashboards
+  resources :dashboards
 
 end

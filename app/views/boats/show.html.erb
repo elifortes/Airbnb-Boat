@@ -1,2 +1,16 @@
-<h1>Boats#show</h1>
-<p>Find me in app/views/boats/show.html.erb</p>
+
+<div class = "container my-3">
+<%# <h1>Boats#show</h1> %>
+
+
+<h2>Request Booking</h2>
+<%= simple_form_for [@boat, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.input :status %>
+  <%= f.input :total_price %>
+<% end %>
+
+<%= link_to 'Edit', edit_boat_path(@boat) %> |
+<%= link_to 'Back to Boats', boats_path %>
+</div>
