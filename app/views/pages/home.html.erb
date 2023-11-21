@@ -24,27 +24,24 @@
         </li>
         <li class="list-group-item"><span class="material-icons">&#xE87C;</span> Material Icons</li>
         <li class="list-group-item">signed?:
-          <%= user_signed_in?  %>|has_photo?
-          <%= user_signed_in? && @user.photo.attached?  %><br
-          <% if user_signed_in? && @user.photo.attached? %>
-            <!-- [...] -->
-            <%= cl_image_tag current_user.photo.key , width: 50 %>
-            <!-- [...] -->
+          <% if  user_signed_in?   %><br
+        
+        
             <%= @user.email %>
           <% end %>
         </li>
-      </ul>
-      <div class="card-body">
-        <%= link_to "test page", test_path, class: 'mx-2 twitter' %>
-        <%= link_to "components page", components_path, class: 'mx-2 logout' %>
-        <%= link_to "edit user", edit_user_registration_path,class: 'mx-2 user-r' %>
+            </ul>
+            <div class="card-body">
+              <%= link_to "test page", test_path, class: 'mx-2 twitter' %>
+              <%= link_to "components page", components_path, class: 'mx-2 logout' %>
+              <%= link_to "edit user", edit_user_registration_path,class: 'mx-2 user-r' %>
+            </div>
+            <div class="card-footer">
+              <small class="text-body-secondary">
+                <%= link_to "go to project", root_path %>
+              </small>
+            </div>
+          </div>
+          <!-- end container -->
+        </div>
       </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">
-          <%= link_to "go to project", root_path %>
-        </small>
-      </div>
-    </div>
-    <!-- end container -->
-  </div>
-</div>
