@@ -13,16 +13,14 @@
     <% @boats.each do |boat| %>
       <div class="co-12 col-sm-6 col-md-4 mb-3">
         <%= link_to boat_path(boat), class:"text-decoration-none" do %>
-            <%= boat.title %>
-<%#
-            <% boat.photos.each do |photo| %>
-            <%# <% if (boat.photo.attached?)  %>
-            <%# <%= cl_image_tag(boat.photo.key, height: 200, width: 650)  %> 
-
-            <%# <% end %>
+          <div class="card-body">
+            <% if boat.photos.attached? %>
+              <%= cl_image_tag(boat.photos.first.key, height: 200, width: 650, crop: :fill) %>
+            <% end %>
+            <h5 class="card-title"><%= boat.title %></h5>
           </div>
-        <% end %>
       </div>
+        <% end %>
     <% end %>
+    </div>
   </div>
-</div>
