@@ -6,8 +6,8 @@ class DashboardsController < ApplicationController
     # looking for the entry belongs to user and not his booking
     # look for his boats booking
     @pending = []
-    array = @boats.each do |bb|
-      @pending += bb.bookings #where { |b| b.user_id != (current_user.id) }
+    @boats.each do |bb|
+      @pending += bb.bookings.reject { |b| b.user_id == current_user.id }
     end
   end
 end
