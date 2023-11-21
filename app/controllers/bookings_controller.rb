@@ -6,17 +6,22 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @booking = Booking.find(params[:id])
+    @boat = @booking.boat
+
   end
 
   def new
     @boat = Boat.find(params[:boat_id])
-    @booking = Booking.new(boat_id: @boat.id)
+    # @booking = Booking.new(boat_id: @boat.id)
+
   end
 
   def create
     @boat = Boat.find(params[:boat_id])
     @booking = Booking.new(booking_params)
     @booking.boat = @boat
+
 
     if @booking.save
       redirect_to boat_booking_path(@boat, @booking)
@@ -44,6 +49,14 @@ class BookingsController < ApplicationController
   #   redirect_to user_path(@booking.user), notice: 'Booking was successfully destroyed.'
   # end
 
+  # def calculate_total_price
+  #   if start_date.present? && end_date.present?
+  #     (end_date - start_date).to_i * boat.price_per_unit
+  #   else
+  #     0
+  #   end
+  # end
+
   private
 
   def booking_params
@@ -53,5 +66,6 @@ class BookingsController < ApplicationController
   # def authorize_user!
   #   redirect_to root_path, unless @booking.user == current_user
   # end
+
 
 end

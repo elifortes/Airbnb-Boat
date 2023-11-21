@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   root "boats#index"
   devise_for :users
 
-  root to: "boats#index"
+  # root to: "boats#index"
   #get 'pages/home', to: 'pages#home', as: :home
   #get 'pages/test', to: "pages#test", as: :test
   #get 'pages/nktest', to: "pages#test", as: :nktest
