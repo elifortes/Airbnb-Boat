@@ -6,9 +6,9 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Defines the root path route ("/")
-  #get 'pages/home', to: 'pages#home', as: :home
-  #get 'pages/test', to: "pages#test", as: :test
-  #get 'pages/components', to: "pages#components", as: :components
+  get 'pages/home', to: 'pages#home', as: :home
+  get 'pages/test', to: "pages#test", as: :test
+  get 'pages/components', to: "pages#components", as: :components
 
   # config/routes.rb
   devise_for :users
