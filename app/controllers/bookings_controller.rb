@@ -46,7 +46,7 @@ class BookingsController < ApplicationController
     @booking = Booking.last
     @boat = Boat.find(@booking.boat_id)
     @total_days = (@booking.end_date - @booking.start_date)
-    @total_price = @total_days * @boat.price_per_unit
+    @total_price = (@total_days * @boat.price_per_unit).to_i
     @booking.save!
   end
 
