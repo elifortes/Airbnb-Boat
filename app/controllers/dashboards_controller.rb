@@ -13,6 +13,8 @@ class DashboardsController < ApplicationController
     array = @boats.each do |bb|
       @pending += bb.bookings #where { |b| b.user_id != (current_user.id) }
     end
+    end
+    end
 
-  end
+
 end
