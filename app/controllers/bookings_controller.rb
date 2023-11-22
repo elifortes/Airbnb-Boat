@@ -8,23 +8,21 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     @boat = @booking.boat
-
   end
 
   def new
     @boat = Boat.find(params[:boat_id])
     # @booking = Booking.new(boat_id: @boat.id)
-
   end
 
   def create
     @boat = Boat.find(params[:boat_id])
     @booking = Booking.new(booking_params)
     @booking.boat = @boat
-
-
+    @booking.user = current_user
     if @booking.save
-      redirect_to boat_booking_path(@boat, @booking)
+      redirect_to bookings_confirmation_path
+      # redirect_to boat_booking_path(@boat, @booking)
     else
       render :new
     end
@@ -41,6 +39,13 @@ class BookingsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def confirmation
+    @booking = Booking.last
+    @boat = Boat.find(@booking.boat_id)
+
+  #   @total_price = (@booking.ned_date - @booking.start_date) ###
   end
 
   # def destroy
@@ -65,5 +70,4 @@ class BookingsController < ApplicationController
   # def authorize_user!
   #   redirect_to root_path, unless @booking.user == current_user
   # end
-
 end
