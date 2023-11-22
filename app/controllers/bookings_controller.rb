@@ -50,8 +50,9 @@ class BookingsController < ApplicationController
     @boat = Boat.find(@booking.boat_id)
     @total_days = (@booking.end_date - @booking.start_date)
     @total_price = @total_days * @boat.price_per_unit
+    @booking.save!
   end
-  
+
 
   # def destroy
   #   @booking.destroy
