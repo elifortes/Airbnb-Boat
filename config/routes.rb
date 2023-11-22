@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   #get 'pages/home', to: 'pages#home', as: :home
   #get 'pages/test', to: "pages#test", as: :test
   #get 'pages/components', to: "pages#components", as: :components
-  # get 'pages/nktest', to: "pages#nktest", as: :nktest
+  #get 'pages/nktest', to: "pages#nktest", as: :nktest
 
   # config/routes.rb
   devise_for :users
@@ -20,6 +20,4 @@ Rails.application.routes.draw do
   end
   resources :bookings
   resources :dashboards
-
-  # use it with bookings_confirmation_path(@booking)
 end

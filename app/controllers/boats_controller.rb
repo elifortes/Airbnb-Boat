@@ -1,4 +1,7 @@
 class BoatsController < ApplicationController
+  # before_action :authorize_user! # , only: [:edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: %i[index]
+
   def index
     @boats = Boat.all
   end
@@ -6,8 +9,6 @@ class BoatsController < ApplicationController
   def show
     @boat = Boat.find(params[:id])
     @booking = Booking.new(boat: @boat)
-
-
   end
 
   def new
@@ -37,8 +38,8 @@ class BoatsController < ApplicationController
 
   def destroy
     @boat = Boat.find(params[:id])
-    if  @boat.destroy
-    redirect_to boats_path, notice: 'Boat ad was successfully deleted.'
+    if @boat.destroy
+      redirect_to boats_path, notice: 'Boat ad was successfully deleted.'
     else
       render :index, status: :unprocessable_entity
     end
@@ -47,6 +48,7 @@ class BoatsController < ApplicationController
   private
 
   def boat_params
-    params.require(:boat).permit(:title, :description, :price_per_unit, :reviews, :captain_name, :guest_capacity, :availability_from, :availability_to, :boat_maker_name, :boat_model, :boat_size, :year_made, :photo, photos: [])
+    params.require(:boat).permit(:title, :description, :price_per_unit, :reviews, :captain_name, :guest_capacity,
+                                 :availability_from, :availability_to, :boat_maker_name, :boat_model, :boat_size, :year_made, :photo, photos: [])
   end
 end

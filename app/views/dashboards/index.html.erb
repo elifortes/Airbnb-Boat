@@ -25,7 +25,7 @@
       </a>
       <!-- Pending Requests Card Example -->
       <!-- Tasks Card Example -->
-      <a class="col-xl-3 col-md-6 mb-4" data-action="click->dashboard#showbookings">
+      <a class="col-xl-3 col-md-6 mb-4 <%= @dnone %>" data-action="click->dashboard#showbookings">
         <div class="card border-left-info shadow h-100 py-2">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
@@ -52,7 +52,7 @@
       </a>
       <!-- Pending Requests Card Example -->
       <!-- Pending Request from Client Card Example -->
-      <a class="col-xl-3 col-md-6 mb-4" data-action="click->dashboard#showboats">
+      <a class="col-xl-3 col-md-6 mb-4 <%= @dnone %>" data-action="click->dashboard#showboats">
         <div class="card border-left-success shadow h-100 py-2">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
@@ -193,7 +193,7 @@
   <!-- End  Row 2 -->
   <!-- Content Row 3-->
   <div class="container-fluid ">
-    <div class="row" data-dashboard-target="mybookings" >
+    <div class="row <%= @dnone %>" data-dashboard-target="mybookings" >
       <!-- Area Chart -->
       <div class="col-xl-8 col-lg-7">
         <div class="card shadow mb-4">
@@ -291,7 +291,7 @@
   <!-- End  Row 3-->
   <!-- Content Row 4-->
   <div class="container-fluid" data-dashboard-target="mybookings">
-    <div class="row">
+    <div class="row <%= @dnone %>"><%= @dnone %>
       <!-- Area Chart -->
       <div class="col-xl-8 col-lg-7">
         <div class="card shadow mb-4">
