@@ -25,7 +25,7 @@
       </a>
       <!-- Pending Requests Card Example -->
       <!-- Tasks Card Example -->
-      <a class="col-xl-3 col-md-6 mb-4" data-action="click->dashboard#showbookings">
+      <a class="col-xl-3 col-md-6 mb-4 <%= @dnone %>" data-action="click->dashboard#showbookings">
         <div class="card border-left-info shadow h-100 py-2">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
@@ -52,7 +52,7 @@
       </a>
       <!-- Pending Requests Card Example -->
       <!-- Pending Request from Client Card Example -->
-      <a class="col-xl-3 col-md-6 mb-4" data-action="click->dashboard#showboats">
+      <a class="col-xl-3 col-md-6 mb-4 <%= @dnone %>" data-action="click->dashboard#showboats">
         <div class="card border-left-success shadow h-100 py-2">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
@@ -163,11 +163,23 @@
                   <div class="card-body">
                     <!-- content -->
                     <div class="card border-0 h-100">
-                      <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top" alt="Skyscrapers"/>
                       <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">
-                          Change it to .row-cols-3 and you’ll see the fourth card wrap.
+                          <% if @boat %>
+                            <h3><%= @boat.title %></h3>
+                            <p><strong> Description: </strong> <%= @boat.description %></p>
+                            <p><strong> Price : </strong> <%= @boat.price_per_unit %></p>
+                            <%# <p><strong> Reviews: </strong> <%= @boat.reviews %>
+                            <p><strong> Captain : </strong> <%= @boat.captain_name %></p>
+                            <p><strong> Capacity: </strong> <%= @boat.guest_capacity %></p>
+                            <p><strong> Availability from: </strong> <%= @boat.availability_from %></p>
+                            <p><strong> Availability_to: </strong> <%= @boat.availability_to %></p>
+                            <p><strong> Made By: </strong> <%= @boat.boat_maker_name %></p>
+                            <p><strong> Model: </strong> <%= @boat.boat_model %></p>
+                            <p><strong> Length: </strong> <%= @boat.boat_size %></p>
+                            <p><strong> Year: </strong> <%= @boat.year_made %></p>
+                          <% end %>
                         </p>
                       </div>
                       <div class="card-footer">
@@ -193,7 +205,7 @@
   <!-- End  Row 2 -->
   <!-- Content Row 3-->
   <div class="container-fluid ">
-    <div class="row" data-dashboard-target="mybookings" >
+    <div class="row <%= @dnone %>" data-dashboard-target="mybookings" >
       <!-- Area Chart -->
       <div class="col-xl-8 col-lg-7">
         <div class="card shadow mb-4">
@@ -291,7 +303,7 @@
   <!-- End  Row 3-->
   <!-- Content Row 4-->
   <div class="container-fluid" data-dashboard-target="mybookings">
-    <div class="row">
+    <div class="row <%= @dnone %>"><%= @dnone %>
       <!-- Area Chart -->
       <div class="col-xl-8 col-lg-7">
         <div class="card shadow mb-4">

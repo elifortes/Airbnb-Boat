@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
-  # before_action :authorize_user!, only: [:edit, :update, :destroy]
+  before_action :authorize_user! # , only: [:edit, :update, :destroy]
+  # skip_before_action :authenticate_user!, only: %i[index]
 
   def index
     @bookings = Booking.all
@@ -43,13 +44,14 @@ class BookingsController < ApplicationController
     end
   end
 
+
   def confirmation
     @booking = Booking.last
     @boat = Boat.find(@booking.boat_id)
     @total_days = (@booking.end_date - @booking.start_date)
     @total_price = @total_days * @boat.price_per_unit
-
   end
+  
 
   # def destroy
   #   @booking.destroy
