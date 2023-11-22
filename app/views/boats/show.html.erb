@@ -1,11 +1,24 @@
-<!--  controller-booking -->
+<div id="boatPhotosCarousel" class="carousel slide" data-bs-ride="carousel" data-controller="carousel">
+  <div class="carousel-inner">
+    <% @boat.photos.each_with_index do |photo, index| %>
+      <div class="carousel-item <%= 'active' if index.zero? %>">
+        <%= cl_image_tag(photo.key, height: 300, width: 500, crop: :fill) %>
+      </div>
+    <% end %>
+  </div>
+  <a class="carousel-control-prev" href="#boatPhotosCarousel" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </a>
+  <a class="carousel-control-next" href="#boatPhotosCarousel" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </a>
+</div>
+
 <div class="container my-3">
 <div class = "container py-5">
   <div class = "row">
     <div class = "col-12">
-      <% @boat.photos.each do |photo| %>
-          <%= cl_image_tag(photo.key, height: 200, width: 650, crop: :fill) %>
-        <% end %>
+     
         <h3><%= @boat.title %></h3>
         <p><strong> Description: </strong> <%= @boat.description %></p>
         <p><strong> Price : </strong> <%= @boat.price_per_unit %></p>
