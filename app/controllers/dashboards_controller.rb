@@ -13,6 +13,6 @@ class DashboardsController < ApplicationController
       @pending += bb.bookings.reject { |b| b.user_id == current_user.id }
     end
     @open = @pending.select { |o| o.status == 'pending' }
-    @percentage = (Float(@open.length - @bookings.length) / @open.length * 100).ceil unless @bookings.empty?
+    # @percentage = (Float(@open.length - @bookings.length) / @open.length * 100).ceil unless @bookings.empty?
   end
 end
