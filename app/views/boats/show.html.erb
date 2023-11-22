@@ -14,9 +14,9 @@
   </a>
 </div>
 <div class="container my-3">
-<div class = "container py-5">
-  <div class = "row">
-    <div class = "col-12">
+  <div class = "container py-5">
+    <div class = "row">
+      <div class = "col-12">
         <h3><%= @boat.title %></h3>
         <p><strong> Description: </strong> <%= @boat.description %></p>
         <p><strong> Price : </strong> <%= @boat.price_per_unit %></p>
@@ -51,16 +51,16 @@
       </div>
     </div>
   </div>
-<!--  controller-booking -->
-<hr>
-<!-- master-->
+  <!--  controller-booking -->
+  <hr>
+  <!-- master-->
   <h1>Welcome to <strong><%= @boat.title %> boat</strong></h1>
-  <p><%= @boat.description %><br></p>
-<div id="boatPhotosCarousel" class="carousel slide" data-bs-ride="carousel" data-controller="carousel">
-  <div class="carousel-inner">
-    <% @boat.photos.each_with_index do |photo, index| %>
+  <p><%= @boat.description %><br>
+  </p>
+  <div id="boatPhotosCarousel" class="carousel slide" data-bs-ride="carousel" data-controller="carousel">
+    <div class="carousel-inner">
       <div class="carousel-item <%= 'active' if index.zero? %>">
-        <%= cl_image_tag(photo.key, height: 300, width: 500, crop: :fill) %>
+        <%= cl_image_tag @boat.photo.key , class: "avatar", alt: "dropdown menu" %>
       </div>
     <% end %>
   </div>
@@ -72,21 +72,21 @@
   </a>
 </div>
 <%# Boat detail list %>
-  <ul style="list-style: none; padding: 0;">
-    <li style="display: inline; margin-right: 10px;"><strong>Size:</strong> <%= @boat.boat_size %></li>
-    <li style="display: inline; margin-right: 10px;"><strong>Guests:</strong> <%= @boat.guest_capacity %></li>
-    <li style="display: inline; margin-right: 10px;"><strong>Year:</strong> <%= @boat.year_made %></li>
-    <li style="display: inline;"><strong>Model:</strong> <%= @boat.boat_model %></li>
-  </ul>
-  <br>
-  <h2><small>Request to book</small></h2>
-  <%= simple_form_for [@boat, @booking] do |f| %>
+<ul style="list-style: none; padding: 0;">
+  <li style="display: inline; margin-right: 10px;"><strong>Size:</strong> <%= @boat.boat_size %></li>
+  <li style="display: inline; margin-right: 10px;"><strong>Guests:</strong> <%= @boat.guest_capacity %></li>
+  <li style="display: inline; margin-right: 10px;"><strong>Year:</strong> <%= @boat.year_made %></li>
+  <li style="display: inline;"><strong>Model:</strong> <%= @boat.boat_model %></li>
+</ul>
+<br>
+<h2><small>Request to book</small></h2>
+<%= simple_form_for [@boat, @booking] do |f| %>
   <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
   <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
   <%= f.input :total_price %>
   <%= f.input :status %>
-  <% end %>
-  <%= link_to 'Continue', edit_boat_path(@boat), class: 'btn btn-primary' %> |
-  <%= link_to 'Back to Boats', boats_path %>
+<% end %>
+<%= link_to 'Continue', edit_boat_path(@boat), class: 'btn btn-primary' %> |
+<%= link_to 'Back to Boats', boats_path %>
 </div>
 <!-- master-->

@@ -1,7 +1,9 @@
 class DashboardsController < ApplicationController
   def index
     @user = current_user
+
     @boats = current_user.boats
+    @boat = Boat.all.sample
     @bookings = current_user.bookings
     # looking for the entry belongs to user and not his booking
     # look for his boats booking
