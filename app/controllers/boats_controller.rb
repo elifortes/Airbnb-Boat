@@ -1,14 +1,23 @@
 class BoatsController < ApplicationController
   # before_action :authorize_user! # , only: [:edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: %i[index]
+  before_action :set_boat, only: %i[show edit update destroy]
 
   def index
     @boats = Boat.all
+
   end
 
   def show
-    @boat = Boat.find(params[:id])
     @booking = Booking.new(boat: @boat)
+    @markers = [
+      {
+        lat: @boat.latitude,
+        lng: @boat.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {boat: @boat}),
+        marker_html: render_to_string(partial: "marker", locals: {boat: @boat})
+        }
+    ]
   end
 
   def new
@@ -27,17 +36,15 @@ class BoatsController < ApplicationController
   end
 
   def edit
-    @boat = Boat.find(params[:id])
   end
 
   def update
-    @boat = Boat.find(params[:id])
+
     @boat.update(boat_params)
     redirect_to boat_path(@boat)
   end
 
   def destroy
-    @boat = Boat.find(params[:id])
     if @boat.destroy
       redirect_to boats_path, notice: 'Boat ad was successfully deleted.'
     else
@@ -47,8 +54,13 @@ class BoatsController < ApplicationController
 
   private
 
+  def set_boat
+    @boat = Boat.find(params[:id])
+  end
+
   def boat_params
     params.require(:boat).permit(:title, :description, :price_per_unit, :reviews, :captain_name, :guest_capacity,
-                                 :availability_from, :availability_to, :boat_maker_name, :boat_model, :boat_size, :year_made, :photo, photos: [])
+                                  :availability_from, :availability_to, :boat_maker_name, :boat_model, :boat_size,
+                                    :year_made, :location,:photo, photos: [])
   end
 end
