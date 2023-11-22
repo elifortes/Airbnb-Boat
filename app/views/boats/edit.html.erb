@@ -1,10 +1,20 @@
-
-
-<div class="container my-3">
-  <h1>Edit Boat</h1>
-
-<%= render "form", boat: @boat %>
-
-
-  <%= link_to 'Back to Boats', boats_path %>
-</div>
+<div class="container-fluid">
+  <div class="row">
+    <section class=" col-6">
+      <h1>All my Boats</h1>
+      <%= link_to 'back to Boats', boats_path %>
+      <ul>
+        <% @boats.each do |boat| %>
+          <li><%= boat.id %> && <%= boat.title %>
+            <%= link_to 'Edit', edit_boat_path(boat) %>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+    <section class="map col-6">
+      <div class="container my-3">
+        <h1>Edit Boat</h1>
+        <%= @boat.id %>
+        <%= render "form", boat: @boat %>
+      </div>
+    </section>
