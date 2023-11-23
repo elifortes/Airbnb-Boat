@@ -37,7 +37,7 @@ class BoatsController < ApplicationController
     @boat = Boat.new(boat_params)
     @boat.user = @user
     if @boat.save
-      redirect_to edit_boat_path, notice: 'Boat ad was successfully created.'
+      redirect_to new_boat_path, notice: 'Boat ad was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
