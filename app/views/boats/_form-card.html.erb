@@ -1,4 +1,4 @@
-<div class="shadow mb-4">
+<div class=" card shadow mb-4">
   <%= simple_form_for(boat ,html: { class: 'card-body d-block' }) do |f| %>
     <div class="d-flex">
       <div class="col-6">
@@ -30,8 +30,6 @@
         <%= f.input :boat_model %>
       </div>
     </div>
-
-
     -->
     <div class="d-flex">
       <div class="col-4">
@@ -46,6 +44,9 @@
     </div>
     <div class="d-flex">
       <div class="col-12">
+        <% boat.photos.each do |image| %>
+          <%= f.hidden_field :photos, multiple: true, value: image.signed_id %>
+        <% end %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       </div>
     </div>

@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   # before_action :authorize_user! # , only: [:edit, :update, :destroy]
   # skip_before_action :authenticate_user!, only: %i[index]
-
+  before_action :set_booking, only: %i[show edit update destroy]
   def index
     @bookings = Booking.all
   end
@@ -21,18 +21,20 @@ class BookingsController < ApplicationController
     @boat = Boat.find(params[:boat_id])
     @booking = Booking.new(booking_params)
     @booking.boat = @boat
+    @booking.status = 'pending'
     @booking.user = current_user
-    if @booking.save
+    if @boat.user_id == current_user.id
+      redirect_to new_booking_path, notice: "you can't book you own boat!"
+    elsif @booking.save
       redirect_to bookings_confirmation_path
-      # redirect_to boat_booking_path(@boat, @booking)
     else
       redirect_to boat_path(@boat), alert: 'Booking could not be created. Check the dates you are trying to put.'
     end
   end
 
-  # def edit
-  #   @booking = Booking.find(params[:id])
-  # end
+  def edit
+    @booking = Booking.find(params[:id])
+  end
 
   def update
     @booking = Booking.find(params[:id])
@@ -48,14 +50,19 @@ class BookingsController < ApplicationController
     @boat = Boat.find(@booking.boat_id)
     @total_days = (@booking.end_date - @booking.start_date)
     @total_price = (@total_days * @boat.price_per_unit).to_i
+    @booking.total_price = @total_price
     @booking.save!
   end
 
-  # def destroy
-  #   @booking.destroy
-  #   redirect_to user_path(@booking.user), notice: 'Booking was successfully destroyed.'
-  # end
-
+  def destroy
+    if @booking.status == 'pending'
+      @booking.destroy
+      redirect_to dashboards_clientbookings_path, notice: 'Booking was successfully destroyed.'
+    else
+      redirect_to dashboards_clientbookings_path,
+                  alert: "You can't cancel a confirmed booking, please contact our client hotline."
+    end
+  end
   # def calculate_total_price
   #   if start_date.present? && end_date.present?
   #     (end_date - start_date).to_i * boat.price_per_unit
@@ -65,6 +72,10 @@ class BookingsController < ApplicationController
   # end
 
   private
+
+  def set_booking
+    @booking = Booking.find(params[:id])
+  end
 
   def booking_params
     params.require(:booking).permit(:boat_id, :user_id, :status, :start_date, :end_date, :total_price)

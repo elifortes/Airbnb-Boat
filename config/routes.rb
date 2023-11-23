@@ -12,17 +12,16 @@ Rails.application.routes.draw do
   #get 'pages/nktest', to: "pages#nktest", as: :nktest
 
   # config/routes.rb
+
   devise_for :users
-  get 'boats/index1', to: 'boats#index1'
   delete "boats/:id", to: "boats#destroy"
   root to: "boats#index"
   get 'bookings/confirmation', to: 'bookings#confirmation'
   resources :boats  do
     resources :bookings
   end
-  resources :bookings#, only: %i[new]
+  resources :bookings
   get 'dashboards/clientrequests', to: 'dashboards#clientrequests'
   get 'dashboards/clientbookings', to: 'dashboards#clientbookings'
-  resources :dashboards
-
+resources :dashboards
 end

@@ -12,20 +12,21 @@
     <div class="collapse navbar-collapse d-flex " id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto justify-content-end">
         <% if user_signed_in? %>
-          <li class="nav-item">
-            <%= link_to 'My Bookings', dashboards_clientbookings_path, class: 'nav-item mx-4' %>
+          <li class="nav-item " style="font-weight:bold;font-size:1.4em">
+            <%= link_to 'My Bookings', dashboards_clientbookings_path, class: 'nav-link mx-2' %>
           </li>
-          <li class="nav-item">
-            <%= link_to 'Customer Requests', dashboards_clientrequests_path, class: 'nav-item mx-4' %>
+          <li class="nav-item"style="font-weight:bold;font-size:1.4em">
+            <%= link_to 'Booking Requests', dashboards_clientrequests_path, class: 'nav-link mx-2' %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item"style="font-weight:bold;font-size:1.4em">
+            <%= link_to 'My Boats', new_boat_path, class: 'nav-link mx-2' %>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown"style="font-weight:bold;font-size:1.4em">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if user_signed_in? && current_user.photo.attached? %>
                 <%= cl_image_tag current_user.photo.key , class: "avatar", alt: "dropdown menu" %>
               <% elsif %>
-                <i class="bi bi-person-bounding-box mx-4"></i>
+                <i class="bi bi-person-bounding-box mx-2"></i>
               <% end %>
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">

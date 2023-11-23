@@ -1,50 +1,31 @@
-// Specific CSS for your home-page
-a {
-  text-decoration: none;
-  color: rgb(0, 130, 139);
-  font-weight: bolder;
-
-  &:hover {
-    color: darkblue;
-    text-shadow: 1px 1px 1px darkblue;
-  }
-}
-
-.btn-outline-danger {
-  &:hover {
-    color: white;
-    font-weight: bolder;
-  }
-}
+ .navbar-expand-lg .navbar-nav .nav-link {
+   padding-top: 1rem;
+   padding-left: .5rem; // Specific CSS for your home-page
+ }
 
 
-img.card-airbnb {
-  border-radius: 2em;
-  overflow: hidden;
-  border: 0px
-}
+ // colors palette
+ $background: #24c288;
+ $background: rgba(93, 152, 241, 0.521);
 
-.card-airbnb {
-  border-radius: 2em;
-  overflow: hidden;
-  border: 0px
-}
+ .shadow-sm {
+   box-shadow: 0 .125rem .25rem 0 rgba(58, 59, 69, .2) !important;
+ }
+
+ .shadow {
+   box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15) !important;
+   box-shadow: 0 .15rem 1.75rem 0 rgba(99, 99, 99, .5) !important;
+ }
+
+ .shadow-lg {
+   box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important
+ }
+
+ .shadow-none {
+   box-shadow: none !important
+ }
 
 
-.warning {
-  background-color: rgba(248, 221, 229, 0.503);
-  color: black;
-  font-weight: bolder;
-  font-size: 1.1em;
-  display: inline-block;
-  vertical-align: end;
-}
-
-
-.alert-info {
-  background-color: greenyellow;
-}
-
-.form-inline div {
-  display: inline-block
-}
+ .form-inline div {
+   display: inline-block
+ }

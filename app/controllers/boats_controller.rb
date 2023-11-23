@@ -6,12 +6,11 @@ class BoatsController < ApplicationController
   def index
     @boats = Boat.all
 
-    if params[:query].present?
-      @boats = Boat.search_boats(params[:query])
-    end
-    if params[:availability_from].present? && params[:availability_to].present?
-      @boats = @boats.where('availability_from <= ? AND availability_to >= ?', params[:availability_from], params[:availability_to])
-    end
+    @boats = Boat.search_boats(params[:query]) if params[:query].present?
+    return unless params[:availability_from].present? && params[:availability_to].present?
+
+    @boats = @boats.where('availability_from <= ? AND availability_to >= ?', params[:availability_from],
+                          params[:availability_to])
   end
 
   def show
@@ -35,6 +34,7 @@ class BoatsController < ApplicationController
   def create
     @user = current_user
     @boat = Boat.new(boat_params)
+
     @boat.user = @user
     if @boat.save
       redirect_to new_boat_path, notice: 'Boat ad was successfully created.'
@@ -46,12 +46,16 @@ class BoatsController < ApplicationController
 
   def edit
     @boat = Boat.find(params[:id])
+
     @boats = current_user.boats
   end
 
   def update
-    @boat.update(boat_params)
-    redirect_to edit_boat_path(@boat)
+    if @boat.update(boat_params)
+      redirect_to new_boat_path, notice: 'Boat ad was successfully updated.'
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -75,7 +79,7 @@ class BoatsController < ApplicationController
 
   def boat_params
     params.require(:boat).permit(:title, :description, :price_per_unit, :reviews, :captain_name, :guest_capacity,
-                                  :availability_from, :availability_to, :boat_maker_name, :boat_model, :boat_size,
-                                  :year_made, :location, :photo, photos: [])
+                                 :availability_from, :availability_to, :boat_maker_name, :boat_model, :boat_size,
+                                 :year_made, :location, :photo, photos: [])
   end
 end
