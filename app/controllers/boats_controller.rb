@@ -52,10 +52,13 @@ class BoatsController < ApplicationController
   end
 
   def destroy
+    @boat = Boat.find(params[:id])
+    @boat.destroy
+
     if @boat.destroy
       redirect_to new_boat_path, notice: 'Boat ad was successfully deleted.'
     else
-      render :index, status: :unprocessable_entity
+      render :index, notice: :unprocessable_entity
     end
   end
 

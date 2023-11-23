@@ -1,5 +1,5 @@
 class Boat < ApplicationRecord
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   has_many :bookings, dependent: :destroy
 
   #  searchkick
@@ -20,10 +20,9 @@ class Boat < ApplicationRecord
   #   :tsearch => { :prefix => true }
   # }
 
-
- include PgSearch::Model
+  include PgSearch::Model
   pg_search_scope :search_boats,
-                  against: [:title, :price_per_unit, :captain_name, :guest_capacity],
+                  against: %i[title price_per_unit captain_name guest_capacity],
                   using: {
                     tsearch: { prefix: true }
                   }
