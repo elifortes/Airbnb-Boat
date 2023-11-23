@@ -5,6 +5,9 @@ class BoatsController < ApplicationController
 
   def index
     @boats = Boat.all
+    if params[:query].present?
+      @boats = @boats.where("title ILIKE ?", "%#{params[:query]}%")
+    end
   end
 
   def show
