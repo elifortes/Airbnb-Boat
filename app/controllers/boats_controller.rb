@@ -6,9 +6,20 @@ class BoatsController < ApplicationController
   def index
     @boats = Boat.all
 
+    # if params[:query].present?
+    #   @boats = @boats.where("title ILIKE ?", "%#{params[:query]}%")
+    # end
+
     if params[:query].present?
-      @boats = @boats.where("title ILIKE ?", "%#{params[:query]}%")
+      @boats = Boat.search_boats(params[:query])
     end
+
+    if params[:availability_from].present? && params[:availability_to].present?
+      @boats = @boats.where('availability_from <= ? AND availability_to >= ?', params[:availability_from], params[:availability_to])
+    end
+
+
+
   end
 
   def show
