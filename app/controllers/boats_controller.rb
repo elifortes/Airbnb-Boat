@@ -34,6 +34,7 @@ class BoatsController < ApplicationController
   def create
     @user = current_user
     @boat = Boat.new(boat_params)
+
     @boat.user = @user
     if @boat.save
       redirect_to new_boat_path, notice: 'Boat ad was successfully created.'
@@ -80,6 +81,4 @@ class BoatsController < ApplicationController
                                  :availability_from, :availability_to, :boat_maker_name, :boat_model, :boat_size,
                                  :year_made, :location, :photo, photos: [])
   end
-
-
 end

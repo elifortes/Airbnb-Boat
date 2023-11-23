@@ -6,7 +6,7 @@
   </div>
   <div class="row">
     <!-- Current Bookings Card Example -->
-    <a class="col-xl-3 col-md-6 mb-4"  data-action="click->dashboard#showbookings">
+    <div class="col-xl-3 col-md-6 mb-4">
       <div class="card border-left-primary shadow h-100 py-2">
         <div class="card-body">
           <div class="row no-gutters align-items-center">
@@ -21,167 +21,60 @@
           </div>
         </div>
       </div>
-    </a>
+    </div>
     <!-- Pending Requests Card Example -->
   </div>
 </div>
 <!-- end Row 1 -->
 <!-- Content Row 2 -->
-<div class="container-fluid"  data-dashboard-target="mybookings">
-  <!-- Content Row 2 -->
-  <div class="row">
-    <!-- Area Chart -->
-    <div class="col-xl-8 col-lg-7">
-      <div class="card shadow mb-4">
-        <!-- Card Header - Dropdown -->
-        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-          <h6 class="m-0 font-weight-bold text-primary">My Bookings
-            <h6>
-              <div class="dropdown no-arrow">
-                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                  <div class="dropdown-header">Dropdown Header:</div>
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </div>
-            </div>
-            <!-- Card Body my bookings-->
-            <div class="card-body">
-              <!-- Card Body -->
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item  d-flex text-start text-xs font-weight-bold text-primary text-capitalize mb-1">
-                  <span class="col-2">From</span>
-                  <span class="col-2">To</span>
-                  <span class="col-3">Boat name</span>
-                  <span class="col-2">Captain</span>
-                  <span class="col-1">Total price</span>
-                  <span class="col-2">Booking Status</span>
-                </li>
-                <% @bookings.each do |bb|%>
-                  <li class="list-group-item  d-flex text-start">
-                    <span class="col-2"><%= bb.start_date %></span>
-                    <span class="col-2"><%= bb.end_date %></span>
-                    <span class="col-3"><%= Boat.find(bb.boat_id).title %></span>
-                    <span class="col-2"><%= User.find( bb.user_id).email %></span>
-                    <span class="col-1"><%=  number_to_currency(bb.total_price) %></span>
-                    <span class="col-2"><%= bb.status %></span>
-                  </li>
-                <% end %>
-                <ul>
-                  <!-- end Card Body booking -->
-                </div>
-              </div>
-            </div>
-            <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Boat information</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <!-- content -->
-                  <div class="card border-0 h-100">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">
-                      </p>
-                    </div>
-                    <div class="card-footer">
-                      <small class="text-muted"></small>
-                    </div>
-                  </div>
-                  <!-- content -->
-                  <div class="mt-4 text-center small">
-                    <!-- footer -->
-                    <!-- footer -->
-                  </div>
-                  <!-- Card Body -->
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Pending Requests Card Example -->
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End  Row 2 -->
-</div>
 <div class="container-fluid">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
     <!-- begin  contianer -->
     <% @bookings.each do |bb|%>
       <!-- Card  -  -->
       <div class="col">
-        <div class="card shadow mb-r h-100">
-          <div class="card-body">
-            <div class="p-0 m-0 font-weight-bold text-primary col-12">
-              <span class='col-4'><%= Boat.find(bb.boat_id).title %></span>
-              <span class='col-4'><%= bb.start_date %></span>
-              <span class='col-4'><%= bb.end_date %></span>
-            </div>
-          </div>
-          <!-- Card Body -->
-          <div class="card-body">
-            <% boat =Boat.find(bb.boat_id)  %>
-            <span class='col-4'> <% if boat.photos.attached? %>
-                <%= link_to boat_path(boat), class: "text-decoration-none" do %>
-                  <%= cl_image_tag(boat.photos.first.key, height: 200, width: 650, crop: :fill, class: "card-img-top") %>
-                <% end %>
-              <% end %>
-            </span>
-            <span class='col-4'><%= bb.start_date %></span>
-          </div>
-          <div class="card-body">
-            <span class='col-4'><%= Boat.find(bb.boat_id).title %></span>
-            <span class='col-4'><%= bb.start_date %></span>
-            <span class='col-4'><%= bb.end_date %></span>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted"></small>
-          </div>
-        </div>
-      </div>
-      <!-- end Card  -  -->
-      <!-- Card  -  -->
-      <div class="col">
         <div class="card h-100">
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="font-weight-bold text-primary" style="font-weight:bold;font-size:1.1em">
+              Booking for: 
+              <span class='col-4'>'<%= Boat.find(bb.boat_id).title.upcase %>' / <%= Boat.find(bb.boat_id).location.capitalize %></span>
+            </h6>
+          </div>
+          <% boat =Boat.find(bb.boat_id)  %>
           <% if boat.photos.attached? %>
             <%= link_to boat_path(boat), class: "text-decoration-none" do %>
-              <%= cl_image_tag(boat.photos.sample.key, height: 200, width: 650, crop: :fill, class: "card-img-top") %>
+              <%= cl_image_tag(boat.photos.last.key, height: 200, width: 650, crop: :fill, class: "card-img-top") %>
             <% end %>  <% end %>
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              Change it to .row-cols-3 and you’ll see the fourth card wrap.
-            </p>
+            <h5 class="card-title">Booking details</h5>
+            <div class="card-text row py-2">
+              <span class='col-6' style="font-weight:bold;font-size:1.1em"><i class="bi bi-calendar4-week me-2"></i><%= bb.start_date %></span>
+              <span class='col-6' style="font-weight:bold;font-size:1.1em"><i class="bi bi-calendar3 me-2"></i><%= bb.start_date %></span>
+            </div>
+            <div class="card-text row py-2">
+              <span class='col-6' style="font-weight:bold;font-size:1.1em"> <i class="bi bi-tags me-2"></i>$ <%= bb.total_price %> </span>
+              <span class='col-6' style="font-weight:bold;font-size:1.1em">
+                <% if bb.status == 'accepted' %>
+                  <i class="bi bi-hand-thumbs-up-fill me-2"></i> <%= bb.status %>
+                <% else %>
+                  <i class="bi bi-hourglass me-2"></i></i> <%= bb.status %>
+              <% end %>
+            </span>
           </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
+          <hr>
+          <div class="card-text row">
+            <span class='col-6' style="font-weight:bold;font-size:1.1em"><i class="bi bi-pencil-square me-2"></i>Edit</span>
+            <span class='col-6' style="font-weight:bold;font-size:1.1em"><i class="bi bi-x-square me-2"></i><%= link_to "Delete", booking_path(bb),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></span>
           </div>
         </div>
-      </div>
-      <!-- end Card  -  -->
-    <% end %>
+        <div class="card-footer">
+          <small class="text-muted">Last Updated:<%= bb.updated_at.strftime(' %H:%M %m/%d/%Y') %></small>
+        </div>
+      </>
+    </div>
   </div>
-  <!-- end container -->
+  <!-- end Card  -  -->
+<% end %>
+<!-- end container -->
 </div>

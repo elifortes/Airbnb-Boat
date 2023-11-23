@@ -1,14 +1,19 @@
-<div class="container-fluid">
+<div class="container-fluid"  data-controller="toggle">
   <div class="row">
     <section class="col-6">
       <div class="row"><%= render 'fleets' %></div>
     </section>
     <section class="map col-6">
-      <div class="container my-3">
-        <h1>&nbsp; </h1>
+      <div class="container my-3 d-none" data-toggle-target='toggleableElement'>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <%= render "form-card", boat: @boat %>
       </div>
     </div>
   </section>
-</div>
 </div>

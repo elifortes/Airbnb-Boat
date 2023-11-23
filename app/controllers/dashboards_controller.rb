@@ -3,7 +3,7 @@ class DashboardsController < ApplicationController
     @user = current_user
     @boats = current_user.boats
     @boat = Boat.all.sample
-    @bookings = current_user.bookings
+    @bookings = current_user.bookings.order(start_date: :asc)
     # looking for the entry belongs to user and not his booking
     # look for his boats booking
     @dnone = @boats.empty? ? 'd-none' : ''
@@ -17,7 +17,7 @@ class DashboardsController < ApplicationController
 
   def clientbookings
     @user = current_user
-    @bookings = current_user.bookings
+    @bookings = current_user.bookings.order(start_date: :asc)
   end
 
   def clientrequests
@@ -28,6 +28,7 @@ class DashboardsController < ApplicationController
     @boats.each do |bb|
       @pendings += bb.bookings.reject { |b| b.user_id == current_user.id }
     end
+    @pendings.sort { |p| p.start_date}
     @open = @pendings.select { |o| o.status == 'pending' }
     @percentage = (Float(@open.length - @bookings.length) / @open.length * 100).ceil unless @open
   end

@@ -20,7 +20,7 @@
   --green: #1cc88a;
   --teal: #20c9a6;
   --cyan: #36b9cc;
-  --white: #fff;
+  --white: #aaa;
   --gray: #858796;
   --gray-dark: #5a5c69;
   --primary: #4e73df;
@@ -29,7 +29,7 @@
   --info: #36b9cc;
   --warning: #f6c23e;
   --danger: #e74a3b;
-  --light: #f8f9fc;
+  --light: #acacac;
   --dark: #5a5c69;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
@@ -74,7 +74,7 @@ body {
   line-height: 1.5;
   color: #858796;
   text-align: left;
-  background-color: #fff
+  background-color: $light-gray;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
