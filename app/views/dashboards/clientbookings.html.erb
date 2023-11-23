@@ -126,3 +126,62 @@
   </div>
   <!-- End  Row 2 -->
 </div>
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+    <!-- begin  contianer -->
+    <% @bookings.each do |bb|%>
+      <!-- Card  -  -->
+      <div class="col">
+        <div class="card shadow mb-r h-100">
+          <div class="card-body">
+            <div class="p-0 m-0 font-weight-bold text-primary col-12">
+              <span class='col-4'><%= Boat.find(bb.boat_id).title %></span>
+              <span class='col-4'><%= bb.start_date %></span>
+              <span class='col-4'><%= bb.end_date %></span>
+            </div>
+          </div>
+          <!-- Card Body -->
+          <div class="card-body">
+            <% boat =Boat.find(bb.boat_id)  %>
+            <span class='col-4'> <% if boat.photos.attached? %>
+                <%= link_to boat_path(boat), class: "text-decoration-none" do %>
+                  <%= cl_image_tag(boat.photos.first.key, height: 200, width: 650, crop: :fill, class: "card-img-top") %>
+                <% end %>
+              <% end %>
+            </span>
+            <span class='col-4'><%= bb.start_date %></span>
+          </div>
+          <div class="card-body">
+            <span class='col-4'><%= Boat.find(bb.boat_id).title %></span>
+            <span class='col-4'><%= bb.start_date %></span>
+            <span class='col-4'><%= bb.end_date %></span>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted"></small>
+          </div>
+        </div>
+      </div>
+      <!-- end Card  -  -->
+      <!-- Card  -  -->
+      <div class="col">
+        <div class="card h-100">
+          <% if boat.photos.attached? %>
+            <%= link_to boat_path(boat), class: "text-decoration-none" do %>
+              <%= cl_image_tag(boat.photos.sample.key, height: 200, width: 650, crop: :fill, class: "card-img-top") %>
+            <% end %>  <% end %>
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              Change it to .row-cols-3 and you’ll see the fourth card wrap.
+            </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
+        </div>
+      </div>
+      <!-- end Card  -  -->
+    <% end %>
+  </div>
+  <!-- end container -->
+</div>

@@ -46,6 +46,9 @@
     </div>
     <div class="d-flex">
       <div class="col-12">
+        <% boat.photos.each do |image| %>
+          <%= f.hidden_field :photos, multiple: true, value: image.signed_id %>
+        <% end %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       </div>
     </div>
@@ -57,3 +60,4 @@
   </div>
 <% end %>
 </div>
+<%= @boat.photos %>
