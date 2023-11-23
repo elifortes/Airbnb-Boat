@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary mb-4">
+<nav class="navbar shadow navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <i class="fa-solid fa-sailboat me-2 " style="font-size:1.8em"></i>
@@ -25,7 +25,7 @@
               <% if user_signed_in? && current_user.photo.attached? %>
                 <%= cl_image_tag current_user.photo.key , class: "avatar", alt: "dropdown menu" %>
               <% elsif %>
-                <i class="bi bi-person-bounding-box mx-4"></i>
+                <i class="bi bi-person-bounding-box mx-4" style="font-size:2em"></i>
               <% end %>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">

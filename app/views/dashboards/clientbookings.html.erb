@@ -1,5 +1,5 @@
 <!-- Content Row 1 -->
-<div class="container-fluid" >
+<div class="container-fluid mt-4" >
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">My Bookings</h1>
@@ -36,8 +36,7 @@
         <div class="card h-100">
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <h6 class="font-weight-bold text-primary" style="font-weight:bold;font-size:1.1em">
-              Booking for: 
-              <span class='col-4'>'<%= Boat.find(bb.boat_id).title.upcase %>' / <%= Boat.find(bb.boat_id).location.capitalize   %></span>
+              <span class='col-4 p-0'>`<%= Boat.find(bb.boat_id).title.upcase %>` / <%= Boat.find(bb.boat_id).location.capitalize   %></span>
             </h6>
           </div>
           <% boat =Boat.find(bb.boat_id)  %>
@@ -63,7 +62,7 @@
           </div>
           <hr>
           <div class="card-text row">
-            <span class='col-6' style="font-weight:bold;font-size:1.1em"><i class="bi bi-pencil-square me-2"></i>Edit</span>
+            <span class='col-6 d-none' style="font-weight:bold;font-size:1.1em "><i class="bi bi-pencil-square me-2"></i>Edit</span>
             <span class='col-6' style="font-weight:bold;font-size:1.1em"><i class="bi bi-x-square me-2"></i><%= link_to "Delete", booking_path(bb),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></span>
           </div>

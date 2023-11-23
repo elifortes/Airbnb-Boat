@@ -33,10 +33,10 @@
           <% if @boats %>
             <% @boats.each do |ob|%>
               <li class="list-group-item  d-flex text-start">
-                <span class="col-2"> <%= ob.title %></span>
+                <span class="col-2">`<%= ob.title.upcase %>`</span>
                 <span class="col-2"> <%= ob.location %> </span>
-                <span class="col-2"> <%= ob.availability_from.strftime('%m/%d/%Y') if ob.availability_from %></span>
-                <span class="col-3"> <%= ob.availability_to.strftime('%m/%d/%Y') if ob.availability_from %></span>
+                <span class="col-2"> <%= ob.availability_from.strftime('%m.%d.%y') if ob.availability_from %></span>
+                <span class="col-3"> <%= ob.availability_to.strftime('%m.%d.%y') if ob.availability_from %></span>
                 <span class="col-1"> <%= link_to 'Edit', edit_boat_path(ob),class:'text-success' %></span>
                 <span class="col-2"><%= link_to "Delete", boat_path(ob),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},class: 'text-danger'
@@ -50,7 +50,8 @@
           <ul></ul>
         </ul  class="my-4">
         <div class="card-body my-2">
-          <%= link_to 'Customer Requests', dashboards_path, class: 'btn btn-outline-success col-3 me-4' %>
+          <%= link_to 'Rental Requests', dashboards_path, class: 'btn btn-outline-success col-3 me-4' %>
+          <!-- 
           <a href="/boats/new"class='btn btn-success col-3 mx-4' >add a new boat</a>
           <%# link_to 'Add a new boat', new_boat_path,  class:'btn btn-outline-success col-3 mx-4',input_html: { data: { action: "click->toggle#fire"} } %>
           <!-- info go up -->
