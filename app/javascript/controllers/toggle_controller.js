@@ -6,7 +6,7 @@ export default class extends Controller {
   // target as data-toggle-target='toggleableElement'
 
   fire() {
-    this.toggleableElementTarget.classList.remove('d-none')
+    this.toggleableElementTarget.classList.toggle('d-none')
     console.log("fire")
   }
 }
