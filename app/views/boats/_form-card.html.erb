@@ -1,0 +1,49 @@
+<div class="shadow mb-4">
+  <%= simple_form_for(boat ,html: { class: 'card-body d-block' }) do |f| %>
+    <div class="d-flex">
+      <div class="col-6">
+        <%= f.input :title, placeholder: 'Enter boat name' %>
+      </div>
+      <div class="col-6">
+        <%= f.input :location %>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="col-6">
+        <%= f.input :availability_from, as: :string, input_html: { data: { controller: "datepicker" } } %>
+      </div>
+      <div class="col-6">
+        <%= f.input :availability_to, as: :string,  input_html: { data: { controller: "datepicker" } } %>
+      </div>
+    </div>
+    <!-- >
+    <div class="d-flex">
+      <div class="col-6">
+        <%= f.input :boat_maker_name %>
+      </div>
+      <div class="col-6">
+        <%= f.input :boat_model %>
+      </div>
+    </div>
+    -->
+    <div class="d-flex">
+      <div class="col-6">
+        <%= f.input :boat_size %>
+      </div>
+      <div class="col-6">
+        <%= f.input :guest_capacity %>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="col-12">
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      </div>
+    </div>
+    <div class="d-flex mt-3 ">
+      <div class="col-12">
+        <%= f.button :submit, class: "btn btn-outline-success "%>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>
