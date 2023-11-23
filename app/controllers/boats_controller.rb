@@ -5,11 +5,13 @@ class BoatsController < ApplicationController
 
   def index
     @boats = Boat.all
-    @boats = Boat.search_boats(params[:query]) if params[:query].present?
-    return unless params[:availability_from].present? && params[:availability_to].present?
 
-    @boats = @boats.where("availability_from <= ? AND availability_to >= ?", params[:availability_from],
-                          params[:availability_to])
+    if params[:query].present?
+      @boats = Boat.search_boats(params[:query])
+    end
+    if params[:availability_from].present? && params[:availability_to].present?
+      @boats = @boats.where('availability_from <= ? AND availability_to >= ?', params[:availability_from], params[:availability_to])
+    end
   end
 
   def show
@@ -35,7 +37,7 @@ class BoatsController < ApplicationController
     @boat = Boat.new(boat_params)
     @boat.user = @user
     if @boat.save
-      redirect_to edit_boat_path, notice: 'Boat ad was successfully created.'
+      redirect_to new_boat_path, notice: 'Boat ad was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -58,7 +60,9 @@ class BoatsController < ApplicationController
     if @boat.destroy
       redirect_to new_boat_path, notice: 'Boat ad was successfully deleted.'
     else
-      render :index, notice: :unprocessable_entity
+
+      redirect_to new_boat_path, notice: 'Cannot delete a boat with associated bookings.'
+
     end
   end
 
@@ -70,7 +74,7 @@ class BoatsController < ApplicationController
 
   def boat_params
     params.require(:boat).permit(:title, :description, :price_per_unit, :reviews, :captain_name, :guest_capacity,
-                                 :availability_from, :availability_to, :boat_maker_name, :boat_model, :boat_size,
-                                 :year_made, :location, :photo, photos: [])
+                                  :availability_from, :availability_to, :boat_maker_name, :boat_model, :boat_size,
+                                  :year_made, :location, :photo, photos: [])
   end
 end
