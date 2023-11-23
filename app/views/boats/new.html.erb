@@ -1,19 +1,14 @@
 <div class="container-fluid">
   <div class="row">
-    <section class="flats col-6">
-      <h1>All my Boats</h1>
-      <ul>
-        <% @boats.each do |boat| %>
-          <li><%= boat.title %></li>
-          <%= link_to 'Edit', edit_boat_path(boat) %>
-        <% end %>
-      </ul>
+    <section class="col-6">
+      <div class="row"><%= render 'fleets' %></div>
     </section>
     <section class="map col-6">
-      <div class = "container my-3">
-        <h1>Post an Ad</h1>
-        <%= render "form", boat: @boat %>
-        <%= link_to 'Back', boats_path %>
+      <div class="container my-3">
+        <h1>&nbsp; </h1>
+        <%= render "form-card", boat: @boat %>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+</div>
+</div>
