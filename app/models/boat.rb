@@ -8,7 +8,7 @@ class Boat < ApplicationRecord
   # validates :title, :description, :price_per_unit, presence: true
 
 
-  validates :title, :description, :price_per_unit, :captain_name, :guest_capacity, :availability_from, :availability_to, :boat_maker_name, :boat_model, :boat_size, :year_made, presence: true
+  # validates :title, :description, :price_per_unit, :captain_name, :guest_capacity, :availability_from, :availability_to, :boat_maker_name, :boat_model, :boat_size, :year_made, presence: true
   # validate :date_range
 
 
@@ -43,7 +43,7 @@ class Boat < ApplicationRecord
 
 include PgSearch::Model
   pg_search_scope :search_boats,
-                  against: [:title, :price_per_unit, :captain_name, :guest_capacity, :location],
+                  against: [:title, :price_per_unit, :captain_name, :location],
                   using: {
                     tsearch: { prefix: true }
                   }

@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
     @bookings = Booking.all
   end
 
+
   def show
     @booking = Booking.find(params[:id])
     @boat = @booking.boat
@@ -25,7 +26,7 @@ class BookingsController < ApplicationController
       redirect_to bookings_confirmation_path
       # redirect_to boat_booking_path(@boat, @booking)
     else
-      render :new
+      redirect_to boat_path(@boat), alert: 'Booking could not be created. Check the dates you are trying to put.'
     end
   end
 
