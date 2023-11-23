@@ -5,9 +5,9 @@ class BoatsController < ApplicationController
 
   def index
     @boats = Boat.all
-    if params[:query].present?
-      @boats = @boats.where("title ILIKE ?", "%#{params[:query]}%")
-    end
+    return unless params[:query].present?
+
+    @boats = @boats.where("title ILIKE ?", "%#{params[:query]}%")
   end
 
   def show
@@ -51,7 +51,7 @@ class BoatsController < ApplicationController
 
   def destroy
     if @boat.destroy
-      redirect_to boats_path, notice: 'Boat ad was successfully deleted.'
+      redirect_to new_boat_path, notice: 'Boat ad was successfully deleted.'
     else
       render :index, status: :unprocessable_entity
     end
