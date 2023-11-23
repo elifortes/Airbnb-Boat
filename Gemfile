@@ -8,6 +8,14 @@ gem "rails", "~> 7.1.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+gem "elasticsearch"
+
+gem "searchkick"
+
+gem 'elasticsearch-model'
+
+gem 'elasticsearch-rails'
+
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
 
@@ -89,3 +97,4 @@ group :test do
 end
 
 gem "hotwire-livereload", "~> 1.3", group: :development
+gem "pg_search"
