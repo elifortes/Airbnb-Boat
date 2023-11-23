@@ -57,7 +57,7 @@ class BoatsController < ApplicationController
     if @boat.destroy
       redirect_to new_boat_path, notice: 'Boat ad was successfully deleted.'
     else
-      render :index, status: :unprocessable_entity
+      redirect_to boats_path, notice: 'Cannot delete a boat with associated bookings.'
     end
   end
 
@@ -69,7 +69,7 @@ class BoatsController < ApplicationController
 
   def boat_params
     params.require(:boat).permit(:title, :description, :price_per_unit, :reviews, :captain_name, :guest_capacity,
-                                 :availability_from, :availability_to, :boat_maker_name, :boat_model, :boat_size,
-                                 :year_made, :location, :photo, photos: [])
+                                  :availability_from, :availability_to, :boat_maker_name, :boat_model, :boat_size,
+                                  :year_made, :location, :photo, photos: [])
   end
 end
