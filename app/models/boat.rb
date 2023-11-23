@@ -21,11 +21,12 @@ class Boat < ApplicationRecord
   # }
 
 
-  include PgSearch::Model
-  pg_search_scope :search_by_title, against: :title,
-                                    using: {
-                                      tsearch: { prefix: true }
-                                    }
+ include PgSearch::Model
+  pg_search_scope :search_boats,
+                  against: [:title, :price_per_unit, :captain_name, :guest_capacity],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end
 
 # validates :title, :description, :price_per_unit, :captain_name, :guest_capacity, :availability_from, :availability_to, :boat_maker_name, :boat_model, :boat_size, :year_made, presence: true
