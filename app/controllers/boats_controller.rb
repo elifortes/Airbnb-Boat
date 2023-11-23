@@ -5,9 +5,11 @@ class BoatsController < ApplicationController
 
   def index
     @boats = Boat.all
-    return unless params[:query].present?
+    @boats = Boat.search_boats(params[:query]) if params[:query].present?
+    return unless params[:availability_from].present? && params[:availability_to].present?
 
-    @boats = @boats.where("title ILIKE ?", "%#{params[:query]}%")
+    @boats = @boats.where("availability_from <= ? AND availability_to >= ?", params[:availability_from],
+                          params[:availability_to])
   end
 
   def show
