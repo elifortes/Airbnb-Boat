@@ -11,8 +11,10 @@ class DashboardsController < ApplicationController
     @boats.each do |bb|
       @pending += bb.bookings.reject { |b| b.user_id == current_user.id }
     end
+    @pending.sort_by { |p| p.start_date }
     @open = @pending.select { |o| o.status == 'pending' }
-    # @percentage = (Float(@open.length - @bookings.length) / @open.length * 100).ceil unless @bookings.empty?
+    @open = @open.length.to_i
+    @percentage = @open / @pending.length.to_f * 100 unless @pending.length == 0
   end
 
   def clientbookings
@@ -28,7 +30,7 @@ class DashboardsController < ApplicationController
     @boats.each do |bb|
       @pendings += bb.bookings.reject { |b| b.user_id == current_user.id }
     end
-    @pendings.sort { |p| p.start_date}
+    @pendings.sort { |p| p.start_date }
     @open = @pendings.select { |o| o.status == 'pending' }
     @percentage = (Float(@open.length - @bookings.length) / @open.length * 100).ceil unless @open
   end

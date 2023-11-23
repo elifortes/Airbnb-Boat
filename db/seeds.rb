@@ -14,8 +14,7 @@
 require "open-uri"
 require 'faker'
 
-Booking.destroy_all
-Boat.destroy_all
+
 # new users
 def users
 user1 = User.new(
@@ -38,18 +37,18 @@ user3 = User.new(
 end
 
 def boats
-10.times do
+4.times do
 name = Faker::FunnyName.name
 boat = Boat.create(title:name  ,description: "A fantastic boat for all occasions.",price_per_unit: 150.0,reviews: 4,captain_name: "Captain John Doe",guest_capacity: 10,availability_from: Date.today + 15,availability_to: Date.today + 30,boat_maker_name: "Ocean Cruisers",boat_model: "CruiseMaster 2000",boat_size: "40 ft",year_made: 2018)
 boat.user = User.all.sample
-boat.location = Faker::Address.full_address
+boat.location = Faker::Address.city
 p boat.title
 p boat.save!
 end
 end
 
 def bookings
-10.times do
+20.times do
 booking = Booking.new(start_date:Date.today + rand(1..7) ,end_date:Date.today + rand(7..17))
 booking.user=  User.all.sample
 booking.boat= Boat.all.sample
@@ -58,6 +57,7 @@ p  booking.save!
 end
 end
 
-
+#Booking.destroy_all
+#Boat.destroy_all
 boats
 bookings
