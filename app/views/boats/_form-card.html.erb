@@ -9,6 +9,11 @@
       </div>
     </div>
     <div class="d-flex">
+      <div class="col-12">
+        <%= f.input :description %>
+      </div>
+    </div>
+    <div class="d-flex">
       <div class="col-6">
         <%= f.input :availability_from, as: :string, input_html: { data: { controller: "datepicker" } } %>
       </div>
@@ -25,13 +30,18 @@
         <%= f.input :boat_model %>
       </div>
     </div>
+  
+ 
     -->
     <div class="d-flex">
-      <div class="col-6">
+      <div class="col-4">
         <%= f.input :boat_size %>
       </div>
-      <div class="col-6">
+      <div class="col-4">
         <%= f.input :guest_capacity %>
+      </div>
+      <div class="col-4">
+        <%= f.input :price_per_unit %>
       </div>
     </div>
     <div class="d-flex">
