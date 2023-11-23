@@ -38,12 +38,19 @@
               <span class="col-2"> <%= ob.availability_from.strftime('%m/%d/%Y') if ob.availability_from %></span>
               <span class="col-3"> <%= ob.availability_to.strftime('%m/%d/%Y') if ob.availability_from %></span>
               <span class="col-1"> <%= link_to 'Edit', edit_boat_path(ob),class:'text-success' %></span>
-              <span class="col-2"><%= link_to 'Delete', boat_path(ob),class: 'text-danger',  data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this boat?'} %></span>
+              <span class="col-2"><%= link_to "Delete", boat_path(ob),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%></span>
+              <!-- >
+               <span class="col-2"><%= link_to 'Delete', boat_path(ob),class: 'text-danger',  data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this boat?'} %></span>
+               -->
             </li>
           <% end %>
-          <ul class="mb-4">
-            <!-- info go up -->
-          </div>
-        </div>
+          <ul></ul>
+        </ul  class="my-4">
+        <div class="card-body my-2"> <%= link_to 'Customer Requests', dashboards_clientrequests_path, class: 'btn btn-outline-success' %></div>
+        <!-- info go up -->
       </div>
-      <!-- Pie Chart -->
+    </div>
+  </div>
+  <!-- Pie Chart -->

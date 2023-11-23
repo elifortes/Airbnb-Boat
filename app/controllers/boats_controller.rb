@@ -54,10 +54,15 @@ class BoatsController < ApplicationController
   end
 
   def destroy
+    @boat = Boat.find(params[:id])
+    @boat.destroy
+
     if @boat.destroy
       redirect_to new_boat_path, notice: 'Boat ad was successfully deleted.'
     else
-      redirect_to boats_path, notice: 'Cannot delete a boat with associated bookings.'
+
+      redirect_to new_boat_path, notice: 'Cannot delete a boat with associated bookings.'
+
     end
   end
 

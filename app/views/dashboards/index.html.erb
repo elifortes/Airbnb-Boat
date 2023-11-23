@@ -25,7 +25,7 @@
       </a>
       <!-- Pending Requests Card Example -->
       <!-- Tasks Card Example -->
-      <a class="col-xl-3 col-md-6 mb-4 <%= @dnone %>" data-action="click->dashboard#showpendings">
+      <a class="col-xl-3 col-md-6 mb-4 <%= @dnone %>" data-action="click->dashboard#showbookings">
         <div class="card border-left-info shadow h-100 py-2">
           <div class="card-body">
             <div class="row no-gutters align-items-center">
@@ -51,6 +51,41 @@
         </div>
       </a>
       <!-- Pending Requests Card Example -->
+      <!-- Pending Request from Client Card Example -->
+      <a class="col-xl-3 col-md-6 mb-4 <%= @dnone %>" data-action="click->dashboard#showboats">
+        <div class="card border-left-success shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">My Boats
+                </div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800"><%= @boats.length %></div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-anchor fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      <!-- Pending Requests Card Example -->
+      <!-- Pending Requests Card Example -->
+      <div class="col-xl-3 col-md-6 mb-4 d-none">
+        <div class="card border-left-warning shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                  Pending Requests</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+              </div>
+              <div class="col-auto">
+                <i class="fas fa-comments fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <!-- end Row 1 -->
@@ -96,7 +131,7 @@
                       <span class="col-2"><%= bb.end_date %></span>
                       <span class="col-3"><%= Boat.find(bb.boat_id).title %></span>
                       <span class="col-2"><%= User.find( bb.user_id).email %></span>
-                      <span class="col-1"><%=  number_to_currency(bb.total_price) %></span>
+                      <span class="col-1"><%= bb.total_price %></span>
                       <span class="col-2"><%= bb.status %></span>
                     </li>
                   <% end %>
@@ -131,10 +166,24 @@
                       <div class="card-body">
                         <h5 class="card-title">Card title</h5>
                         <p class="card-text">
+                          <% if @boat %>
+                            <h3><%= @boat.title %></h3>
+                            <p><strong> Description: </strong> <%= @boat.description %></p>
+                            <p><strong> Price : </strong> <%= @boat.price_per_unit %></p>
+                            <%# <p><strong> Reviews: </strong> <%= @boat.reviews %>
+                            <p><strong> Captain : </strong> <%= @boat.captain_name %></p>
+                            <p><strong> Capacity: </strong> <%= @boat.guest_capacity %></p>
+                            <p><strong> Availability from: </strong> <%= @boat.availability_from %></p>
+                            <p><strong> Availability_to: </strong> <%= @boat.availability_to %></p>
+                            <p><strong> Made By: </strong> <%= @boat.boat_maker_name %></p>
+                            <p><strong> Model: </strong> <%= @boat.boat_model %></p>
+                            <p><strong> Length: </strong> <%= @boat.boat_size %></p>
+                            <p><strong> Year: </strong> <%= @boat.year_made %></p>
+                          <% end %>
                         </p>
                       </div>
                       <div class="card-footer">
-                        <small class="text-muted"></small>
+                        <small class="text-muted">Last updated 3 mins ago</small>
                       </div>
                     </div>
                     <!-- content -->
@@ -152,11 +201,11 @@
         </div>
       </div>
     </div>
-    <!-- End  Row 2 -->
   </div>
-  <div class="container-fluid" >
-    <!-- Content Row 3-->
-    <div class="row <%= @dnone %>"  >
+  <!-- End  Row 2 -->
+  <!-- Content Row 3-->
+  <div class="container-fluid ">
+    <div class="row <%= @dnone %>" data-dashboard-target="mybookings" >
       <!-- Area Chart -->
       <div class="col-xl-8 col-lg-7">
         <div class="card shadow mb-4">
@@ -164,6 +213,16 @@
           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
             <h6 class="m-0 font-weight-bold text-info">Pending Booking Requests</h6>
             <div class="dropdown no-arrow">
+              <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
+                <div class="dropdown-header">Dropdown Header:</div>
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
             </div>
           </div>
           <!-- Card Body -->
@@ -242,4 +301,86 @@
     </div>
   </div>
   <!-- End  Row 3-->
+  <!-- Content Row 4-->
+  <div class="container-fluid" data-dashboard-target="mybookings">
+    <div class="row <%= @dnone %>"><%= @dnone %>
+      <!-- Area Chart -->
+      <div class="col-xl-8 col-lg-7">
+        <div class="card shadow mb-4">
+          <!-- Card Header - Dropdown -->
+          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-success">My Armada</h6>
+            <div class="dropdown no-arrow">
+              <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
+                <div class="dropdown-header">Dropdown Header:</div>
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </div>
+          <!-- Card Body -->
+          <div class="card-body">
+            <!-- info go in -->
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item  d-flex text-start text-xs font-weight-bold text-success text-capitalize mb-1">
+                <span class="col-2">From</span>
+                <span class="col-2">To</span>
+                <span class="col-2">Boat name</span>
+                <span class="col-2">Client Name</span>
+                <span class="col-2">Booking Status</span>
+              </li>
+              <% @boats.each do |ob|%>
+                <li class="list-group-item  d-flex text-start">
+                  <span class="col-2"> <%= ob.id %></span>
+                  <span class="col-2"> <%= ob.title %> </span>
+                  <span class="col-2">   <%= ob.user_id %></span>
+                  <span class="col-2">   <%= ob.user_id %></span>
+                  <span class="col-2">   <%= ob.user_id %></span>
+                  <span class="col-2">   <%= ob.user_id %></span>
+                </li>
+              <% end %>
+              <ul>
+                <!-- info go up -->
+              </div>
+            </div>
+          </div>
+          <!-- Pie Chart -->
+          <div class="col-xl-4 col-lg-5">
+            <div class="card shadow mb-4">
+              <!-- Card Header - Dropdown -->
+              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-success">My Boat Information</h6>
+                <div class="dropdown no-arrow">
+                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink" style="">
+                    <div class="dropdown-header">Dropdown Header:</div>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+              </div>
+              <!-- Card Body -->
+              <div class="card-body">
+                <!-- info go in -->
+                <!-- info go up -->
+                <div class="mt-4 text-center small">
+                  <!-- some info -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End  Row 4-->
 </div>

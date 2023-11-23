@@ -13,11 +13,15 @@ Rails.application.routes.draw do
 
   # config/routes.rb
   devise_for :users
+  delete "boats/:id", to: "boats#destroy"
   root to: "boats#index"
   get 'bookings/confirmation', to: 'bookings#confirmation'
   resources :boats  do
     resources :bookings
   end
-  resources :bookings
+  resources :bookings#, only: %i[new]
+  get 'dashboards/clientrequests', to: 'dashboards#clientrequests'
+  get 'dashboards/clientbookings', to: 'dashboards#clientbookings'
   resources :dashboards
+
 end
