@@ -8,21 +8,16 @@ export default class extends Controller {
   }
 
   showbookings() {
-    this.mybookingsTarget.classList.toggle("d-none");
-    console.log('bookings')
+    console.log('show booking')
+    this.mybookingsTarget.classList.remove("d-none");
 
 
   }
   showpendings() {
-    this.mybookingsTarget.classList.toggle('d-none')
-    console.log('pendings')
-
-
-  }
-  showboats() {
-    this.mybookingsTarget.classList.toggle('d-none')
-    console.log('bookings')
+    console.log('show pending')
+    this.mybookingsTarget.classList.add('d-none')
 
   }
+
 }
 
