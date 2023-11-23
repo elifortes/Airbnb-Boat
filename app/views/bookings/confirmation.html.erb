@@ -2,7 +2,11 @@
   <div class="row">
     <section class="lats col-6">
       <div>
-        <%= link_to 'back to Boats', boats_path %>
+            <div class="container my-3">
+              <%= link_to boats_path do %>
+                <i class="fa-solid fa-angles-left fa-xl" style="color: #131415;"></i>
+              <% end %>
+            </div>
         <div id="boatPhotosCarousel" class="carousel slide" data-bs-ride="carousel" data-controller="carousel">
           <div class="carousel-inner">
             <% @boat.photos.each_with_index do |photo, index| %>
@@ -36,7 +40,7 @@
                 <p><strong> Year: </strong> <%= @boat.year_made %></p>
                 <%# <%= link_to 'Delete Boat', boat_path(@boat), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this boat?' }, class: 'btn btn-danger' %>
                 <%# link_to 'Edit Boat', edit_boat_path(@boat), class: "btn btn-success" %>
-                <v%# cl_image_tag(@boat.photos.first.key, height: 200, width: 650, crop: :fill) %>
+                <%# cl_image_tag(@boat.photos.first.key, height: 200, width: 650, crop: :fill) %>
                 </div>
               </div>
             </div>
@@ -47,7 +51,7 @@
         <div class = "container my-3">
           <h1>Thank you for you booking!</h1>
           <p>
-            <strong>Booking Details</strong>
+            <strong>Confirm and pay</strong>
           </p>
           <p>
             <strong>Boat: </strong> <%= @boat.title %><br>
@@ -61,21 +65,37 @@
           <div class="form-check">
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
             <label class="form-check-label" for="flexRadioDefault1">
-              <p><strong>Pay in full: $ (<%=number_to_currency(@total_price) %>)</strong></p>
+              <p><strong>Pay in full: (<%=number_to_currency(@total_price) %>)</strong></p>
             </label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
             <label class="form-check-label" for="flexRadioDefault2">
-              <p><strong>Pay part now $ (<%=number_to_currency(@total_price / 2) %>), part later on <%= @booking.start_date + 5 %></strong></p>
+              <p><strong>Pay part now (<%=number_to_currency(@total_price / 2) %>), part later on <%= @booking.start_date + 5 %></strong></p>
             </label>
           </div>
           <p></p>
-          <%= link_to 'Confirm', dashboards_clientbookings_path, class: 'btn btn-primary' %>
+
+
+          <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Payment method:
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#"><i class="fa-brands fa-paypal"></i> PayPal</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-brands fa-cc-visa"></i> Visa</a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-brands fa-cc-mastercard"></i> MasterCard</a></li>
+          </ul>
         </div>
-      </section>
+
+                      <br>
+
+          <div class="d-flex justify-content-center">
+            <%= link_to 'Confirm and pay', dashboards_clientbookings_path, class: 'btn btn-danger btn-lg' %>
+          </div>
+        </section>
+      </div>
     </div>
   </div>
-</div>
-</div>
+
 <!--  controller-booking -->

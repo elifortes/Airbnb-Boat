@@ -23,7 +23,7 @@
       <div class="card-body">
         <!-- info go in -->
         <ul class="list-group list-group-flush">
-          <li class="list-group-item  d-flex text-start text-xs font-weight-bold text-success text-capitalize mb-1">
+          <li class="list-group-item  d-flex text-start text-xl font-weight-bold text-success text-capitalize mb-1">
             <span class="col-2">Boat Name</span>
             <span class="col-2">Location</span>
             <span class="col-2">Available From</span>
@@ -31,6 +31,9 @@
             <span class="col-1"></span>
             <span class="col-2"></span>
           </li>
+
+
+
           <% @boats.each do |ob|%>
             <li class="list-group-item  d-flex text-start">
               <span class="col-2"> <%= ob.title %></span>
@@ -46,6 +49,11 @@
                -->
             </li>
           <% end %>
+
+
+
+
+
           <ul></ul>
         </ul  class="my-4">
         <div class="card-body my-2"> <%= link_to 'Customer Requests', dashboards_clientrequests_path, class: 'btn btn-outline-success' %></div>

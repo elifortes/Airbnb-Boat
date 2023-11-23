@@ -37,7 +37,7 @@
                 <p><strong> Year: </strong> <%= @boat.year_made %></p>
                 <%# <%= link_to 'Delete Boat', boat_path(@boat), data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this boat?' }, class: 'btn btn-danger' %>
                 <%# link_to 'Edit Boat', edit_boat_path(@boat), class: "btn btn-success" %>
-                <%# cl_image_tag(@boat.photos.first.key, height: 200, width: 650, crop: :fill) %>
+                <% cl_image_tag(@boat.photos.first.key, height: 200, width: 650, crop: :fill) %>
                 </div>
               </div>
             </div>

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   # config/routes.rb
   devise_for :users
+  get 'boats/index1', to: 'boats#index1'
   delete "boats/:id", to: "boats#destroy"
   root to: "boats#index"
   get 'bookings/confirmation', to: 'bookings#confirmation'
