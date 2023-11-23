@@ -1,0 +1,47 @@
+<h1>My Fleets</h1>
+<div class="col-xl-6 col-md-12 mb-4 <%= @dnone %>" >
+  <div class="card border-left-success shadow h-100 py-2">
+    <div class="card-body">
+      <div class="row no-gutters align-items-center">
+        <div class="col mr-2">
+          <div class="text-xs font-weight-bold text-success text-uppercase mb-1">My Boats
+          </div>
+          <div class="h5 mb-0 font-weight-bold text-gray-800"><%= @boats.length %></div>
+        </div>
+        <div class="col-auto">
+          <i class="fas fa-anchor fa-2x text-gray-300"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xl-12">
+    <div class="card shadow mb-4">
+      <!-- Card Header - Dropdown -->
+      <!-- Card Body -->
+      <div class="card-body">
+        <!-- info go in -->
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item  d-flex text-start text-xs font-weight-bold text-success text-capitalize mb-1">
+            <span class="col-3">Boat Name</span>
+            <span class="col-3">Location</span>
+            <span class="col-2">Available From</span>
+            <span class="col-2">Available To</span>
+            <span class="col-2"></span>
+          </li>
+          <% @boats.each do |ob|%>
+            <li class="list-group-item  d-flex text-start">
+              <span class="col-3"> <%= ob.title %></span>
+              <span class="col-3"> <%= ob.location %> </span>
+              <span class="col-2"> <%= ob.availability_from.strftime('%m/%d/%Y') %></span>
+              <span class="col-2"> <%= ob.availability_to.strftime('%m/%d/%Y') %></span>
+              <span class="col-2"> <%= link_to 'Edit', edit_boat_path(ob),class:'text-success' %></span>
+            </li>
+          <% end %>
+          <ul>
+            <!-- info go up -->
+          </div>
+        </div>
+      </div>
+      <!-- Pie Chart -->
