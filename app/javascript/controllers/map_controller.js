@@ -24,14 +24,14 @@ export default class extends Controller {
       const customMarker = document.createElement("div")
       customMarker.innerHTML = marker.marker_html // Add this
       new mapboxgl.Marker(customMarker)
-        .setLngLat([ marker.lng, marker.lat ])
+        .setLngLat([marker.lng, marker.lat])
         .setPopup(popup) // Add this
         .addTo(this.map)
     });
   }
   #fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
-    this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { maxZoom: 8, duration: 1550 })
+    this.markersValue.forEach(marker => bounds.extend([marker.lng, marker.lat]))
+    this.map.fitBounds(bounds, { maxZoom: 12, duration: 1550 })
   }
 }
