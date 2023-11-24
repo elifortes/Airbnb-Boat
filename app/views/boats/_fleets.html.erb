@@ -41,17 +41,18 @@
                 <span class="col-2"><%= link_to "Delete", boat_path(ob),
   data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},class: 'text-danger'
 %></span>
+
                 <!-- >
-               <span class="col-2"><%= link_to 'Delete', boat_path(ob),class: 'text-danger',  data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this boat?'} %></span>
-               -->
+                -->
               </li>
             <% end %>
+
           <% end %>
           <ul></ul>
         </ul  class="my-4">
         <div class="card-body my-2">
           <%= link_to 'Rental Requests', dashboards_path, class: 'btn btn-outline-success col-3 me-4' %>
-          <!-- 
+          <!--
           <a href="/boats/new"class='btn btn-success col-3 mx-4' >add a new boat</a>
           <%# link_to 'Add a new boat', new_boat_path,  class:'btn btn-outline-success col-3 mx-4',input_html: { data: { action: "click->toggle#fire"} } %>
           <!-- info go up -->

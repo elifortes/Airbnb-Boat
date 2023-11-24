@@ -24,6 +24,12 @@ class BoatsController < ApplicationController
         marker_html: render_to_string(partial: "marker", locals: { boat: @boat })
       }
     ]
+    availability_from = @boat.availability_from
+  availability_to = @boat.availability_to
+
+  # Create an array containing the date range for Flatpickr
+  @enable_dates = [{ from: availability_from, to: availability_to }]
+
   end
 
   def new
@@ -60,15 +66,10 @@ class BoatsController < ApplicationController
   end
 
   def destroy
-    @boat = Boat.find(params[:id])
-    @boat.destroy
-
     if @boat.destroy
       redirect_to new_boat_path, notice: 'Boat ad was successfully deleted.'
     else
-
-      redirect_to new_boat_path, notice: 'Cannot delete a boat with associated bookings.'
-
+      redirect_to boats_path, notice: 'Cannot delete a boat with associated bookings.'
     end
   end
 
