@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  overflow:auto;
   border-radius: 20%;
 
 }
@@ -15,13 +16,13 @@
 }
 
 .carousel-inner {
-  border-radius: 15px; /* Adjust the border-radius as needed */
+  border-radius: 10px; /* Adjust the border-radius as needed */
   overflow: hidden;
   /* Ensure rounded corners clip the images */
 }
 
 .carousel-item img {
-  border-radius: 15px;
+  border-radius: 10px;
    /* Adjust the border-radius as needed */
 
 }
@@ -36,4 +37,3 @@
 //   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); /* Adjust the values as needed */
 //   padding: 15px; /* Optional: Add padding to create space for the shadow */
 // }
-
