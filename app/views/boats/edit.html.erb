@@ -1,11 +1,19 @@
-<div class="container-fluid">
+<div class="container-fluid" data-controller="toggle" >
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">My Boats</h1>
+  </div>
   <div class="row">
     <section class=" col-6">
       <div class="row"><%= render 'fleets' %></div>
     </section>
     <section class="map col-6">
       <div class="container my-3">
-        <h1>&nbsp; </h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
         <%= render "form-card", boat: @boat %>
       </div>
     </section>

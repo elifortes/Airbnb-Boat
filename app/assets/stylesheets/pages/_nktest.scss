@@ -36,8 +36,8 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
+  //--font-family-sans-serif: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  //--font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
 }
 
 *,
@@ -47,7 +47,7 @@
 }
 
 html {
-  font-family: sans-serif;
+  //  font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent
@@ -68,13 +68,16 @@ section {
 
 body {
   margin: 0;
-  font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  //font-family: Nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
+
   color: #858796;
+  color: #2d2e36;
   text-align: left;
-  background-color: #fff
+  background-color: #fff;
+  background-color: $background;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -179,7 +182,7 @@ a {
 
 a:hover {
   color: #224abe;
-  text-decoration: underline
+  text-decoration: none
 }
 
 a:not([href]):not([class]) {
@@ -2775,8 +2778,8 @@ fieldset:disabled a.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #1cc88a;
-  border-color: #1cc88a
+  background-color: #49141f;
+  border-color: #adbeb7
 }
 
 .btn-success:hover {
@@ -8364,21 +8367,6 @@ button.bg-dark:hover {
   white-space: normal
 }
 
-.shadow-sm {
-  box-shadow: 0 .125rem .25rem 0 rgba(58, 59, 69, .2) !important
-}
-
-.shadow {
-  box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15) !important
-}
-
-.shadow-lg {
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175) !important
-}
-
-.shadow-none {
-  box-shadow: none !important
-}
 
 .w-25 {
   width: 25% !important
@@ -11608,7 +11596,7 @@ a:focus {
 
 .sidebar .nav-item .collapse .collapse-inner .collapse-item.active,
 .sidebar .nav-item .collapsing .collapse-inner .collapse-item.active {
-  color: #4e73df;
+  color: #1b2f2b;
   font-weight: 700
 }
 

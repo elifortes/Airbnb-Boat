@@ -1,42 +1,24 @@
-<div class="shadow card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.lucentcms.com/iyc_website/2022/12/63a2ec6b2f268-montenegro-banner.jpg?w=1920&format=webp)">
+
+<%# (ORIGINAL) %>
+
+
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.lucentcms.com/iyc_website/2022/12/63a2ec6b2f268-montenegro-banner.jpg?w=1920&format=webp)">
   <%# <h3 class="text-sucess"> Sail into Freedom: Rent Your Boat Now! </h3> %>
 </div>
-
 <div class="container pt-3">
   <div class="d-flex justify-content-between align-items-center mb-3">
-  </div>
-
-  
-
-<br>
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h3 class="mb-0"><strong>Any Event | Any Boat</strong> <i class="fa-solid fa-anchor fa-sm" style="color: #899cbd;"></i></h3>
-
-
-    <%= link_to "Create your listening", new_boat_path, class: "btn btn-success" %>
+    <h3 class="mb-0">Any Event | Any Boat</h3>
+    <%= link_to "Post a Boat", new_boat_path, class: "btn btn-success" %>
   </div>
   <div class="row justify-content-center">
     <div class="col-sm-8 my-3">
-
-
-<%= form_with url: boats_path, method: :get, class: "d-flex" do %>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text">
-        <i class="fa fa-search"></i>
-      </span>
+      <%= form_with url: boats_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search by title, location, captain, or more..." %>
+        <%= date_field_tag :availability_from, params[:availability_from], class: "form-control", placeholder: "Available from" %>
+        <%= date_field_tag :availability_to, params[:availability_to], class: "form-control", placeholder: "Available until" %>
+        <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+      <% end %>
     </div>
-    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search by title, location, captain, or more..." %>
-    <%= date_field_tag :availability_from, params[:availability_from], class: "form-control", placeholder: "Available from" %>
-    <%= date_field_tag :availability_to, params[:availability_to], class: "form-control", placeholder: "Available until" %>
-    <div class="input-group-append">
-
-    </div>
-  </div>
-<% end %>
-
-
-
   </div>
   <div class="row">
     <% if @boats %>
@@ -50,7 +32,7 @@
             <% end %>
             <div class="card-body border-radius">
               <div class="text-center">
-                <h5 class="card-title"><strong><%= boat.title %></strong></h5>
+                <h5 class="card-title"><%= boat.title %></h5>
                 <p class="text-danger">$<%= boat.price_per_unit %>/day</p>
               </div>
               <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -67,3 +49,6 @@
     </div>
   <% end %>
 </div>
+
+
+<%= link_to 'Custom Index Page', boats_index1_path %>

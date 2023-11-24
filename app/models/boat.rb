@@ -21,6 +21,7 @@ class Boat < ApplicationRecord
   #   availability_from.present? && availability_to.present? && availability_from < availability_to
   # end
 
+  validates :title, :description, :price_per_unit, :guest_capacity, :availability_from, :availability_to, presence: true
 
 
   # def date_range
@@ -34,16 +35,14 @@ class Boat < ApplicationRecord
   #   end
   # end
 
-
-
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
   has_many_attached :photos, dependent: :destroy
 
 
-include PgSearch::Model
+  include PgSearch::Model
   pg_search_scope :search_boats,
-                  against: [:title, :price_per_unit, :captain_name, :guest_capacity, :location],
+                  against: %i[title price_per_unit captain_name guest_capacity location],
                   using: {
                     tsearch: { prefix: true }
                   }

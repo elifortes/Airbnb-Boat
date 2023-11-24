@@ -35,8 +35,8 @@
   </div>
 </div>
 <!-- end Row 1 -->
-<div class="container-fluid" data-controller="update-booking">
-  <div class="row " >
+<div class="container-fluid ">
+  <div class="row <%= @dnone %>" data-dashboard-target="mybookings" >
     <!-- Area Chart -->
     <div class="col-xl-8 col-lg-7">
       <div class="card shadow mb-4">
@@ -132,63 +132,3 @@
   </div>
 </div>
 <!-- End  Row 3-->
-<!-- Content Row 2 -->
-<div class="container-fluid" data-update-booking-target="status">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
-    <!-- begin  contianer -->
-    <% @pendings.each do |bb|%>
-      <!-- Card  -  -->
-      <div class="col">
-        <div class="card h-100">
-          <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-            <h6 class="font-weight-bold text-primary" style="font-weight:bold;font-size:1.1em">
-              Booking for: 
-              <span class='col-4'>'<%= Boat.find(bb.boat_id).title.upcase %>' / <%# Boat.find(bb.boat_id).location.capitalize %></span>
-            </h6>
-          </div>
-          <% boat =Boat.find(bb.boat_id)  %>
-          <% if boat.photos.attached? %>
-            <%= link_to boat_path(boat), class: "text-decoration-none" do %>
-              <%= cl_image_tag(boat.photos.last.key, height: 200, width: 650, crop: :fill, class: "card-img-top") %>
-            <% end %>  <% end %>
-          <div class="card-body">
-            <h5 class="card-title">Booking details</h5>
-            <div class="card-text row py-2">
-              <span class='col-6' style="font-weight:bold;font-size:1.1em"><i class="bi bi-calendar4-week me-2"></i><%= bb.start_date %></span>
-              <span class='col-6' style="font-weight:bold;font-size:1.1em"><i class="bi bi-calendar3 me-2"></i><%= bb.start_date %></span>
-            </div>
-            <div class="card-text row py-2">
-              <span class='col-6' style="font-weight:bold;font-size:1.1em"> <i class="bi bi-tags me-2"></i>$ <%= bb.total_price %> </span>
-            </div>
-            <br>
-            <div class="form-group form-inline input-group"><span style="font-weight:bold;font-size:1.1em">
-                <% if bb.status == 'accepted' %>
-                  <i class="bi bi-hand-thumbs-up-fill me-2"></i>
-                <% else %>
-                  <i class="bi bi-hourglass me-2"></i></i>
-              <% end %>
-            </span>
-            <%= simple_form_for bb, data: { action: "submit->update-booking#update" },  class: 'form-group form-inline input-group text-info'  do |f| %>
-              <%= f.input :status,label: false, class:"input-group",
-                 collection: %w[pending accepted rejected ]                  %>
-              <%= f.button :submit, class:'btn btn-outline-info' %>
-            <% end %>
-          </div>
-          <hr>
-          <!--
-          <div class="card-text row">
-            <span class='col-6' style="font-weight:bold;font-size:1.1em"><i class="bi bi-pencil-square me-2"></i>Edit</span>
-            <span class='col-6' style="font-weight:bold;font-size:1.1em"><i class="bi bi-x-square me-2"></i><%= link_to "Delete", booking_path(bb),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></span>
-          </div>--->
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Last Updated:<%= bb.updated_at.strftime(' %H:%M %m/%d/%Y') %></small>
-        </div>
-      </>
-    </div>
-  </div>
-  <!-- end Card  -  -->
-<% end %>
-<!-- end container -->
-</div>
