@@ -59,9 +59,7 @@ end
 
 Booking.destroy_all
 
-
-#Boat.destroy_all
-# users
+Boat.destroy_all
+users
 boats
-
 bookings
