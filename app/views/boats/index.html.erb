@@ -6,7 +6,7 @@
   <div class="d-flex justify-content-between align-items-center mb-3">
   </div>
 
-  
+
 
 <br>
 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -41,8 +41,8 @@
   <div class="row">
     <% if @boats %>
       <% @boats.each do |boat| %>
-        <div class="co-12 col-sm-6 col-md-4 mb-3">
-          <div class="card">
+        <div class="co-12 col-sm-6 col-md-4 mb-3 ">
+          <div class="card shadow-sm ">
             <% if boat.photos.attached? %>
               <%= link_to boat_path(boat), class: "text-decoration-none" do %>
                 <%= cl_image_tag(boat.photos.first.key, height: 200, width: 650, crop: :fill, class: "card-img-top") %>
