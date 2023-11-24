@@ -57,7 +57,8 @@ p  booking.save!
 end
 end
 
-#Booking.destroy_all
+Booking.destroy_all
 #Boat.destroy_all
-boats
+users
+#boats
 bookings

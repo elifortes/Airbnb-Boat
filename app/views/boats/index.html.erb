@@ -1,69 +1,56 @@
 <div class="shadow card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.lucentcms.com/iyc_website/2022/12/63a2ec6b2f268-montenegro-banner.jpg?w=1920&format=webp)">
   <%# <h3 class="text-sucess"> Sail into Freedom: Rent Your Boat Now! </h3> %>
 </div>
-
-<div class="container pt-3">
-  <div class="d-flex justify-content-between align-items-center mb-3">
+<div class="container-fluid mt-4" >
+  <!-- Page Heading -->
+  <div class="d-flex between my-4">
+    <br>
+    <h3 class="mb-0"><strong>Any Event | Any Boat</strong> <i class="fa-solid fa-anchor fa-sm" ></i></h3>
   </div>
-
-  
-
-<br>
-<div class="d-flex justify-content-between align-items-center mb-3">
-    <h3 class="mb-0"><strong>Any Event | Any Boat</strong> <i class="fa-solid fa-anchor fa-sm" style="color: #899cbd;"></i></h3>
-
-
-    <%= link_to "Create your listening", new_boat_path, class: "btn btn-success" %>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-sm-8 my-3">
-
-
-<%= form_with url: boats_path, method: :get, class: "d-flex" do %>
-  <div class="input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text">
-        <i class="fa fa-search"></i>
-      </span>
-    </div>
-    <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search by title, location, captain, or more..." %>
-    <%= date_field_tag :availability_from, params[:availability_from], class: "form-control", placeholder: "Available from" %>
-    <%= date_field_tag :availability_to, params[:availability_to], class: "form-control", placeholder: "Available until" %>
-    <div class="input-group-append">
-
-    </div>
-  </div>
-<% end %>
-
-
-
-  </div>
-  <div class="row">
-    <% if @boats %>
-      <% @boats.each do |boat| %>
-        <div class="co-12 col-sm-6 col-md-4 mb-3">
-          <div class="card">
-            <% if boat.photos.attached? %>
-              <%= link_to boat_path(boat), class: "text-decoration-none" do %>
-                <%= cl_image_tag(boat.photos.first.key, height: 200, width: 650, crop: :fill, class: "card-img-top") %>
-              <% end %>
-            <% end %>
-            <div class="card-body border-radius">
-              <div class="text-center">
-                <h5 class="card-title"><strong><%= boat.title %></strong></h5>
-                <p class="text-danger">$<%= boat.price_per_unit %>/day</p>
-              </div>
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center"class="btn btn-outline-dark mt-auto" ><%= link_to "View Boat", boat_path(boat), class:"btn btn-outline-dark mt-2 text-decoration-none"  %></div>
-              </div>
-              <div class = "d-flex justify-content-around">
-                <div>🚢 <%= boat.boat_size %>ft</div>
-                <div>👥 <%= boat.guest_capacity %> guests</div>
-              </div>
-            </div>
+  <div class="row justify-content-between">
+    <div class="col-sm-9 my-3">
+      <%= form_with url: boats_path, method: :get, class: "d-flex" do %>
+        <div class="input-group shadow">
+          <div class="input-group-prepend">
+            <span class="input-group-text">
+              <i class="fa fa-search"></i>
+            </span>
+          </div>
+          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search by title, location, captain, or more..." %>
+          <%= date_field_tag :availability_from, params[:availability_from], class: "form-control", placeholder: "Available from" %>
+          <%= date_field_tag :availability_to, params[:availability_to], class: "form-control", placeholder: "Available until" %>
+          <div class="input-group-append">
           </div>
         </div>
       <% end %>
     </div>
-  <% end %>
-</div>
+    <div class="col text-end my-3 mx-4">    <%= link_to "Share your boat!", new_boat_path, class: "btn btn-success inline  shadow" %></div>
+    <div class="row">
+      <% if @boats %>
+        <% @boats.each do |boat| %>
+          <div class="co-12 col-md-6 col-lg-3 mb-3">
+            <div class="card shadow mb-0 h-100">
+              <% if boat.photos.attached? %>
+                <%= link_to boat_path(boat), class: "text-decoration-none" do %>
+                  <%= cl_image_tag(boat.photos.first.key, height: 200, width: 650, crop: :fill, class: "card-img-top") %>
+                <% end %>
+              <% end %>
+              <div class="card-body border-radius">
+                <div class="text-center">
+                  <h5 class="card-title"><strong><%= boat.title %></strong></h5>
+                  <p class="text-danger">$<%= boat.price_per_unit %>/day</p>
+                </div>
+                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                  <div class="text-center"class="btn btn-outline-dark mt-auto" ><%= link_to "View Boat", boat_path(boat), class:"btn btn-outline-dark mt-2 text-decoration-none"  %></div>
+                </div>
+                <div class = "d-flex justify-content-around">
+                  <div>🚢 <%= boat.boat_size %>ft</div>
+                  <div>👥 <%= boat.guest_capacity %> guests</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>

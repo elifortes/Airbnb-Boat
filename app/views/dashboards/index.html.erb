@@ -2,7 +2,7 @@
 <div class="container-fluid mt-4">
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">My Bookings</h1>
+    <h1 class="h3 mb-0 text-gray-800">Rental Requests</h1>
   </div>
   <div class="row">
     <!-- Tasks Card Example -->
@@ -67,6 +67,8 @@
             <div class="form-group form-inline input-group"><span style="font-weight:bold;font-size:1.1em">
                 <% if bb.status == 'accepted' %>
                   <i class="bi bi-hand-thumbs-up-fill me-2"></i>
+                <% elsif bb.status == 'rejected' %>
+                  <i class="bi bi-x-square me-2"></i>
                 <% else %>
                   <i class="bi bi-hourglass me-2"></i></i>
               <% end %>
