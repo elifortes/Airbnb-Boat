@@ -14,6 +14,7 @@ class BoatsController < ApplicationController
   end
 
   def show
+    @outdates=[]
     @booking = Booking.new(boat: @boat)
     @markers = [
       {

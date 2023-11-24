@@ -3,7 +3,11 @@ import flatpickr from "flatpickr";
 
 // Connects to data-controller="datepicker"
 export default class extends Controller {
+  static values = { outdates: Array }
+
   connect() {
+  
+   #flatpickr(this.element);
 
     const minDate = this.element.getAttribute("data-min-date");
     const maxDate = this.element.getAttribute("data-max-date");
