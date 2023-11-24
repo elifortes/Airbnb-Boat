@@ -53,7 +53,7 @@ booking = Booking.new(start_date:Date.today + rand(1..7) ,end_date:Date.today + 
 booking.user=  User.all.sample
 booking.boat= Boat.all.sample
 booking.status = 'pending'
-p  booking.save!
+p booking.save!
 end
 end
 
@@ -61,7 +61,7 @@ Booking.destroy_all
 
 
 #Boat.destroy_all
-users
-#boats
+# users
+boats
 
 bookings
