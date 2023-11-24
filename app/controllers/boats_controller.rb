@@ -15,6 +15,7 @@ class BoatsController < ApplicationController
 
   def show
     @outdates=[]
+
     @booking = Booking.new(boat: @boat)
     @markers = [
       {
@@ -49,6 +50,9 @@ class BoatsController < ApplicationController
 
       render :new, status: :unprocessable_entity
     end
+
+
+
   end
 
   def edit
