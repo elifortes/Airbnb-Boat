@@ -61,9 +61,14 @@
                 <h2 class= "text-dark">Create Booking</h2>
               </div>
             <%= simple_form_for [@boat, @booking] do |f| %>
-              <%= f.input :start_date,  as: :string, input_html: { data: { controller: "datepicker" } }%>
-              <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker" } } %>
-              <%= f.button :submit, class: "btn btn-primary"%>
+
+            <%# <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker", "enable-dates": @enable_dates.to_json } } %>
+            <%# <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker", "enable-dates": @enable_dates.to_json } } %>
+            <%# <%= f.button :submit, class: "btn btn-primary"%>
+            <%= f.input :start_date, as: :string, input_html: { data: { controller: "datepicker", min_date: @boat.availability_from.strftime('%Y-%m-%d'), max_date: @boat.availability_to.strftime('%Y-%m-%d') } } %>
+            <%= f.input :end_date, as: :string, input_html: { data: { controller: "datepicker", min_date: @boat.availability_from.strftime('%Y-%m-%d'), max_date: @boat.availability_to.strftime('%Y-%m-%d') } } %>
+            <%= f.button :submit, class: "btn btn-primary"%>
+
             <% end %>
             <%# <%= link_to 'Edit', edit_boat_path(@boat) %>
             <%# <%= link_to 'Back to Boats', boats_path %>
@@ -80,7 +85,7 @@
       <p><strong>Where Boat will be:</strong></p>
     <div style="width: 100%; height: 500px;"
       data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-markers-value="<%= @markers.to_json %>
       <%# data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>
     <%# </div>
     </div>
