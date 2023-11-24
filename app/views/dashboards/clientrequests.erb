@@ -152,7 +152,8 @@
               <%= cl_image_tag(boat.photos.last.key, height: 200, width: 650, crop: :fill, class: "card-img-top") %>
             <% end %>  <% end %>
           <div class="card-body">
-            <h5 class="card-title">Booking details</h5>
+            <h5 class="card-title">Booking details: </h5>
+            <p><%= User.find(bb.user_id).first_name %></p>
             <div class="card-text row py-2">
               <span class='col-6' style="font-weight:bold;font-size:1.1em"><i class="bi bi-calendar4-week me-2"></i><%= bb.start_date %></span>
               <span class='col-6' style="font-weight:bold;font-size:1.1em"><i class="bi bi-calendar3 me-2"></i><%= bb.start_date %></span>
