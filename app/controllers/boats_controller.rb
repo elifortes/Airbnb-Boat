@@ -14,16 +14,7 @@ class BoatsController < ApplicationController
   end
 
   def show
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
-    @outdates=[]
->>>>>>> master
-=======
-    @outdates=[]
-
->>>>>>> master
+    @outdates = []
     @booking = Booking.new(boat: @boat)
     @markers = [
       {
@@ -34,11 +25,10 @@ class BoatsController < ApplicationController
       }
     ]
     availability_from = @boat.availability_from
-  availability_to = @boat.availability_to
+    availability_to = @boat.availability_to
 
-  # Create an array containing the date range for Flatpickr
-  @enable_dates = [{ from: availability_from, to: availability_to }]
-
+    # Create an array containing the date range for Flatpickr
+    @enable_dates = [{ from: availability_from, to: availability_to }]
   end
 
   def new
@@ -58,9 +48,6 @@ class BoatsController < ApplicationController
 
       render :new, status: :unprocessable_entity
     end
-
-
-
   end
 
   def edit
