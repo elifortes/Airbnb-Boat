@@ -32,7 +32,7 @@
             <div class="card shadow mb-0 h-100">
               <% if boat.photos.attached? %>
                 <%= link_to boat_path(boat), class: "text-decoration-none" do %>
-                  <%= cl_image_tag(boat.photos.first.key, height: 200, width: 650, crop: :fill, class: "card-img-top") %>
+                  <%# <%= cl_image_tag(boat.photos.first.key, height: 200, width: 650, crop: :fill, class: "card-img-top") %> %>
                 <% end %>
               <% end %>
               <div class="card-body border-radius">
